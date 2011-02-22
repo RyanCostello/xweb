@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  Spell_name: MyString
+  Spell_class: MyString
+  Spell_info: MyString
+  Spell_remaining: 1
+  Spell_attack: MyString
+  Spell_damage: MyString
+
+two:
+  Spell_name: MyString
+  Spell_class: MyString
+  Spell_info: MyString
+  Spell_remaining: 1
+  Spell_attack: MyString
+  Spell_damage: MyString

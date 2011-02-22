@@ -1,0 +1,41 @@
+<%= form_for(@spell) do |f| %>
+  <% if @spell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@spell.errors.count, "error") %> prohibited this spell from being saved:</h2>
+
+      <ul>
+      <% @spell.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Spell_name %><br />
+    <%= f.text_field :Spell_name %>
+  </div>
+  <div class="field">
+    <%= f.label :Spell_class %><br />
+    <%= f.text_field :Spell_class %>
+  </div>
+  <div class="field">
+    <%= f.label :Spell_info %><br />
+    <%= f.text_field :Spell_info %>
+  </div>
+  <div class="field">
+    <%= f.label :Spell_remaining %><br />
+    <%= f.text_field :Spell_remaining %>
+  </div>
+  <div class="field">
+    <%= f.label :Spell_attack %><br />
+    <%= f.text_field :Spell_attack %>
+  </div>
+  <div class="field">
+    <%= f.label :Spell_damage %><br />
+    <%= f.text_field :Spell_damage %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

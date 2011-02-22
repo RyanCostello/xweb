@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ac:</b>
+  <%= @defense.AC %>
+</p>
+
+<p>
+  <b>Fort:</b>
+  <%= @defense.Fort %>
+</p>
+
+<p>
+  <b>Reflex:</b>
+  <%= @defense.Reflex %>
+</p>
+
+<p>
+  <b>Will:</b>
+  <%= @defense.Will %>
+</p>
+
+<p>
+  <b>Player:</b>
+  <%= @defense.player_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_defense_path(@defense) %> |
+<%= link_to 'Back', defenses_path %>

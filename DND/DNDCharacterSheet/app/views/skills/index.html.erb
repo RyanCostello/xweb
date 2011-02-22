@@ -1,0 +1,57 @@
+<h1>Listing skills</h1>
+
+<table>
+  <tr>
+    <th>Acrobatics</th>
+    <th>Arcana</th>
+    <th>Athletics</th>
+    <th>Bluff</th>
+    <th>Diplomacy</th>
+    <th>Dungeoneering</th>
+    <th>Endurance</th>
+    <th>Heal</th>
+    <th>History</th>
+    <th>Insight</th>
+    <th>Intimidate</th>
+    <th>Nature</th>
+    <th>Perception</th>
+    <th>Religion</th>
+    <th>Stealth</th>
+    <th>Streetwise</th>
+    <th>Thievery</th>
+    <th>Player</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @skills.each do |skill| %>
+  <tr>
+    <td><%= skill.Acrobatics %></td>
+    <td><%= skill.Arcana %></td>
+    <td><%= skill.Athletics %></td>
+    <td><%= skill.Bluff %></td>
+    <td><%= skill.Diplomacy %></td>
+    <td><%= skill.Dungeoneering %></td>
+    <td><%= skill.Endurance %></td>
+    <td><%= skill.Heal %></td>
+    <td><%= skill.History %></td>
+    <td><%= skill.Insight %></td>
+    <td><%= skill.Intimidate %></td>
+    <td><%= skill.Nature %></td>
+    <td><%= skill.Perception %></td>
+    <td><%= skill.Religion %></td>
+    <td><%= skill.Stealth %></td>
+    <td><%= skill.Streetwise %></td>
+    <td><%= skill.Thievery %></td>
+    <td><%= skill.player_id %></td>
+    <td><%= link_to 'Show', skill %></td>
+    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+    <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skill', new_skill_path %>

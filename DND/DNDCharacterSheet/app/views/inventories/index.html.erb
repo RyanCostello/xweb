@@ -1,0 +1,37 @@
+<h1>Listing inventories</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Equipped</th>
+    <th>Name</th>
+    <th>Info</th>
+    <th>Attack</th>
+    <th>Dual wield</th>
+    <th>Benefit</th>
+    <th>Player</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @inventories.each do |inventory| %>
+  <tr>
+    <td><%= inventory.type %></td>
+    <td><%= inventory.equipped %></td>
+    <td><%= inventory.name %></td>
+    <td><%= inventory.info %></td>
+    <td><%= inventory.attack %></td>
+    <td><%= inventory.dual_wield %></td>
+    <td><%= inventory.benefit %></td>
+    <td><%= inventory.player_id %></td>
+    <td><%= link_to 'Show', inventory %></td>
+    <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+    <td><%= link_to 'Destroy', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Inventory', new_inventory_path %>

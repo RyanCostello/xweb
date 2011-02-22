@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Type:</b>
+  <%= @inventory.type %>
+</p>
+
+<p>
+  <b>Equipped:</b>
+  <%= @inventory.equipped %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @inventory.name %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @inventory.info %>
+</p>
+
+<p>
+  <b>Attack:</b>
+  <%= @inventory.attack %>
+</p>
+
+<p>
+  <b>Dual wield:</b>
+  <%= @inventory.dual_wield %>
+</p>
+
+<p>
+  <b>Benefit:</b>
+  <%= @inventory.benefit %>
+</p>
+
+<p>
+  <b>Player:</b>
+  <%= @inventory.player_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

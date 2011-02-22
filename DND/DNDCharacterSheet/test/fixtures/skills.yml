@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  Acrobatics: 1
+  Arcana: 1
+  Athletics: 1
+  Bluff: 1
+  Diplomacy: 1
+  Dungeoneering: 1
+  Endurance: 1
+  Heal: 1
+  History: 1
+  Insight: 1
+  Intimidate: 1
+  Nature: 1
+  Perception: 1
+  Religion: 1
+  Stealth: 1
+  Streetwise: 1
+  Thievery: 1
+  player_id: 1
+
+two:
+  Acrobatics: 1
+  Arcana: 1
+  Athletics: 1
+  Bluff: 1
+  Diplomacy: 1
+  Dungeoneering: 1
+  Endurance: 1
+  Heal: 1
+  History: 1
+  Insight: 1
+  Intimidate: 1
+  Nature: 1
+  Perception: 1
+  Religion: 1
+  Stealth: 1
+  Streetwise: 1
+  Thievery: 1
+  player_id: 1

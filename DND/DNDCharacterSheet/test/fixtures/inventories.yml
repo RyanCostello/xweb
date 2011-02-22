@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  equipped: false
+  name: MyString
+  info: MyString
+  attack: MyString
+  dual_wield: MyString
+  benefit: MyString
+  player_id: 1
+
+two:
+  type: MyString
+  equipped: false
+  name: MyString
+  info: MyString
+  attack: MyString
+  dual_wield: MyString
+  benefit: MyString
+  player_id: 1

@@ -1,0 +1,89 @@
+<%= form_for(@skill) do |f| %>
+  <% if @skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+
+      <ul>
+      <% @skill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Acrobatics %><br />
+    <%= f.text_field :Acrobatics %>
+  </div>
+  <div class="field">
+    <%= f.label :Arcana %><br />
+    <%= f.text_field :Arcana %>
+  </div>
+  <div class="field">
+    <%= f.label :Athletics %><br />
+    <%= f.text_field :Athletics %>
+  </div>
+  <div class="field">
+    <%= f.label :Bluff %><br />
+    <%= f.text_field :Bluff %>
+  </div>
+  <div class="field">
+    <%= f.label :Diplomacy %><br />
+    <%= f.text_field :Diplomacy %>
+  </div>
+  <div class="field">
+    <%= f.label :Dungeoneering %><br />
+    <%= f.text_field :Dungeoneering %>
+  </div>
+  <div class="field">
+    <%= f.label :Endurance %><br />
+    <%= f.text_field :Endurance %>
+  </div>
+  <div class="field">
+    <%= f.label :Heal %><br />
+    <%= f.text_field :Heal %>
+  </div>
+  <div class="field">
+    <%= f.label :History %><br />
+    <%= f.text_field :History %>
+  </div>
+  <div class="field">
+    <%= f.label :Insight %><br />
+    <%= f.text_field :Insight %>
+  </div>
+  <div class="field">
+    <%= f.label :Intimidate %><br />
+    <%= f.text_field :Intimidate %>
+  </div>
+  <div class="field">
+    <%= f.label :Nature %><br />
+    <%= f.text_field :Nature %>
+  </div>
+  <div class="field">
+    <%= f.label :Perception %><br />
+    <%= f.text_field :Perception %>
+  </div>
+  <div class="field">
+    <%= f.label :Religion %><br />
+    <%= f.text_field :Religion %>
+  </div>
+  <div class="field">
+    <%= f.label :Stealth %><br />
+    <%= f.text_field :Stealth %>
+  </div>
+  <div class="field">
+    <%= f.label :Streetwise %><br />
+    <%= f.text_field :Streetwise %>
+  </div>
+  <div class="field">
+    <%= f.label :Thievery %><br />
+    <%= f.text_field :Thievery %>
+  </div>
+  <div class="field">
+    <%= f.label :player_id %><br />
+    <%= f.text_field :player_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

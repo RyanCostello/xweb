@@ -1,0 +1,49 @@
+<%= form_for(@inventory) do |f| %>
+  <% if @inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+      <% @inventory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :equipped %><br />
+    <%= f.check_box :equipped %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_field :info %>
+  </div>
+  <div class="field">
+    <%= f.label :attack %><br />
+    <%= f.text_field :attack %>
+  </div>
+  <div class="field">
+    <%= f.label :dual_wield %><br />
+    <%= f.text_field :dual_wield %>
+  </div>
+  <div class="field">
+    <%= f.label :benefit %><br />
+    <%= f.text_field :benefit %>
+  </div>
+  <div class="field">
+    <%= f.label :player_id %><br />
+    <%= f.text_field :player_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

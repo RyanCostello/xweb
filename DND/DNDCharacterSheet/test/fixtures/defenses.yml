@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  AC: 1
+  Fort: 1
+  Reflex: 1
+  Will: 1
+  player_id: 1
+
+two:
+  AC: 1
+  Fort: 1
+  Reflex: 1
+  Will: 1
+  player_id: 1

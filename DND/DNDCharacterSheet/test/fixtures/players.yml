@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  character_name: MyString
+  character_class: MyString
+  character_initiative: 1
+  character_level: 1
+
+two:
+  character_name: MyString
+  character_class: MyString
+  character_initiative: 1
+  character_level: 1
