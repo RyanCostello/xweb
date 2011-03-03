@@ -27,9 +27,11 @@
     <%= f.label :Will %><br />
     <%= f.text_field :Will %>
   </div>
-  <div class="field">
-    <%= f.label :player_id %><br />
-    <%= f.text_field :player_id %>
+  <div>
+  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
+	<%= f.label :player_id %>
+	<%= f.select(:player_id, players, { :include_blank => false,
+		:selected => @defense.player_id}, id => "defese_#{@defense.id}") %>
   </div>
   <div class="actions">
     <%= f.submit %>

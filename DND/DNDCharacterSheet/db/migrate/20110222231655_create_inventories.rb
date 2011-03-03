@@ -1,7 +1,7 @@
 class CreateInventories < ActiveRecord::Migration
   def self.up
     create_table :inventories do |t|
-      t.string :type
+      t.string :item_type
       t.boolean :equipped
       t.string :name
       t.string :info

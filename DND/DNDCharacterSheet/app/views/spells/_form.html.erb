@@ -12,28 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Spell_name %><br />
-    <%= f.text_field :Spell_name %>
+    <%= f.label :spell_name %><br />
+    <%= f.text_field :spell_name %>
   </div>
   <div class="field">
-    <%= f.label :Spell_class %><br />
-    <%= f.text_field :Spell_class %>
+    <%= f.label :spell_class %><br />
+    <%= f.text_field :spell_class %>
   </div>
   <div class="field">
-    <%= f.label :Spell_info %><br />
-    <%= f.text_field :Spell_info %>
+    <%= f.label :spell_info %><br />
+    <%= f.text_field :spell_info %>
   </div>
   <div class="field">
-    <%= f.label :Spell_remaining %><br />
-    <%= f.text_field :Spell_remaining %>
+    <%= f.label :spell_remaining %><br />
+    <%= f.text_field :spell_remaining %>
   </div>
   <div class="field">
-    <%= f.label :Spell_attack %><br />
-    <%= f.text_field :Spell_attack %>
+    <%= f.label :spell_attack %><br />
+    <%= f.text_field :spell_attack %>
   </div>
   <div class="field">
-    <%= f.label :Spell_damage %><br />
-    <%= f.text_field :Spell_damage %>
+    <%= f.label :spell_damage %><br />
+    <%= f.text_field :spell_damage %>
+  </div>
+  <div>
+  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
+	<%= f.label :player_id %>
+	<%= f.select(:player_id, players, { :include_blank => false,
+		:selected => @spell.player_id}, id => "spell_#{@spell.id}") %>
   </div>
   <div class="actions">
     <%= f.submit %>

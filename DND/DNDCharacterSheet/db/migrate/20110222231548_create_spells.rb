@@ -1,12 +1,13 @@
 class CreateSpells < ActiveRecord::Migration
   def self.up
     create_table :spells do |t|
-      t.string :Spell_name
-      t.string :Spell_class
-      t.string :Spell_info
-      t.integer :Spell_remaining
-      t.string :Spell_attack
-      t.string :Spell_damage
+      t.string :spell_name
+      t.string :spell_class
+      t.string :spell_info
+      t.integer :spell_remaining
+      t.string :spell_attack
+      t.string :spell_damage
+      t.integer :player_id
 
       t.timestamps
     end

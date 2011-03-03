@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :item_type %><br />
+    <%= f.text_field :item_type %>
   </div>
   <div class="field">
     <%= f.label :equipped %><br />
@@ -39,9 +39,11 @@
     <%= f.label :benefit %><br />
     <%= f.text_field :benefit %>
   </div>
-  <div class="field">
-    <%= f.label :player_id %><br />
-    <%= f.text_field :player_id %>
+  <div>
+  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
+	<%= f.label :player_id %>
+	<%= f.select(:player_id, players, { :include_blank => false,
+		:selected => @inventory.player_id}, id => "inventory_#{@inventory.id}") %>
   </div>
   <div class="actions">
     <%= f.submit %>

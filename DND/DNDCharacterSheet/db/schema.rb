@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222221532) do
+ActiveRecord::Schema.define(:version => 20110222231655) do
 
   create_table "defenses", :force => true do |t|
     t.integer  "AC"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20110222221532) do
   end
 
   create_table "inventories", :force => true do |t|
-    t.string   "type"
+    t.string   "item_type"
     t.boolean  "equipped"
     t.string   "name"
     t.string   "info"
@@ -68,12 +68,12 @@ ActiveRecord::Schema.define(:version => 20110222221532) do
   end
 
   create_table "spells", :force => true do |t|
-    t.string   "Spell_name"
-    t.string   "Spell_class"
-    t.string   "Spell_info"
-    t.integer  "Spell_remaining"
-    t.string   "Spell_attack"
-    t.string   "Spell_damage"
+    t.string   "spell_name"
+    t.string   "spell_class"
+    t.string   "spell_info"
+    t.integer  "spell_remaining"
+    t.string   "spell_attack"
+    t.string   "spell_damage"
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"

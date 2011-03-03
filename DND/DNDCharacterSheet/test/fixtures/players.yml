@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  character_name: MyString
-  character_class: MyString
-  character_initiative: 1
-  character_level: 1
+player_1:
+  character_name: Faith
+  character_class: Rogue
+  character_initiative: 11
+  character_level: 12
 
-two:
-  character_name: MyString
-  character_class: MyString
-  character_initiative: 1
-  character_level: 1
+player_2:
+  character_name: Silverize
+  character_class: Ranger
+  character_initiative: 10
+  character_level: 9
