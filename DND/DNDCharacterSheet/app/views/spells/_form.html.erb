@@ -35,12 +35,6 @@
     <%= f.label :spell_damage %><br />
     <%= f.text_field :spell_damage %>
   </div>
-  <div>
-  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
-	<%= f.label :player_id %>
-	<%= f.select(:player_id, players, { :include_blank => false,
-		:selected => @spell.player_id}, id => "spell_#{@spell.id}") %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

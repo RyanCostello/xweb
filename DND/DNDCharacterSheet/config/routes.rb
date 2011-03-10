@@ -1,4 +1,8 @@
 DNDCharacterSheet::Application.routes.draw do
+  resources :player_inventories
+
+  resources :player_spells
+
   resources :inventories
 
   resources :skills

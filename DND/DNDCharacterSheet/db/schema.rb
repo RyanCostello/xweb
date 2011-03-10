@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222231655) do
+ActiveRecord::Schema.define(:version => 20110310192443) do
 
   create_table "defenses", :force => true do |t|
     t.integer  "AC"
@@ -30,7 +30,20 @@ ActiveRecord::Schema.define(:version => 20110222231655) do
     t.string   "attack"
     t.string   "dual_wield"
     t.string   "benefit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "player_inventories", :force => true do |t|
     t.integer  "player_id"
+    t.integer  "inventory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "player_spells", :force => true do |t|
+    t.integer  "player_id"
+    t.integer  "spell_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20110222231655) do
     t.string   "character_class"
     t.integer  "character_initiative"
     t.integer  "character_level"
+    t.integer  "strength"
+    t.integer  "constitution"
+    t.integer  "dexterity"
+    t.integer  "intellect"
+    t.integer  "wisdom"
+    t.integer  "charisma"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,19 +93,6 @@ ActiveRecord::Schema.define(:version => 20110222231655) do
     t.integer  "spell_remaining"
     t.string   "spell_attack"
     t.string   "spell_damage"
-    t.integer  "player_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "stats", :force => true do |t|
-    t.integer  "strength"
-    t.integer  "constitution"
-    t.integer  "dexterity"
-    t.integer  "intellect"
-    t.integer  "wisdom"
-    t.integer  "charisma"
-    t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

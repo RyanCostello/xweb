@@ -5,6 +5,12 @@ class CreatePlayers < ActiveRecord::Migration
       t.string :character_class
       t.integer :character_initiative
       t.integer :character_level
+      t.integer :strength
+      t.integer :constitution
+      t.integer :dexterity
+      t.integer :intellect
+      t.integer :wisdom
+      t.integer :charisma
 
       t.timestamps
     end

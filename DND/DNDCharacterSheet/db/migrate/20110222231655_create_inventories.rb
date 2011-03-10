@@ -8,7 +8,6 @@ class CreateInventories < ActiveRecord::Migration
       t.string :attack
       t.string :dual_wield
       t.string :benefit
-      t.integer :player_id
 
       t.timestamps
     end

@@ -1,25 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Character name:</b>
+  <b>Name:</b>
   <%= @player.character_name %>
 </p>
 
 <p>
-  <b>Character class:</b>
+  <b>Class:</b>
   <%= @player.character_class %>
 </p>
 
 <p>
-  <b>Character initiative:</b>
+  <b>Initiative:</b>
   <%= @player.character_initiative %>
 </p>
 
 <p>
-  <b>Character level:</b>
+  <b>Level:</b>
   <%= @player.character_level %>
 </p>
 
+<p>
+  <b>Strength:</b>
+  <%= @player.strength %>
+</p>
+
+<p>
+  <b>Constitution:</b>
+  <%= @player.constitution %>
+</p>
+
+<p>
+  <b>Dexterity:</b>
+  <%= @player.dexterity %>
+</p>
+
+<p>
+  <b>Intellect:</b>
+  <%= @player.intellect %>
+</p>
+
+<p>
+  <b>Wisdom:</b>
+  <%= @player.wisdom %>
+</p>
+
+<p>
+  <b>Charisma:</b>
+  <%= @player.charisma %>
+</p>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

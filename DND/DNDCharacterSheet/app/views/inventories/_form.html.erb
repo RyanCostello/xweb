@@ -39,12 +39,6 @@
     <%= f.label :benefit %><br />
     <%= f.text_field :benefit %>
   </div>
-  <div>
-  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
-	<%= f.label :player_id %>
-	<%= f.select(:player_id, players, { :include_blank => false,
-		:selected => @inventory.player_id}, id => "inventory_#{@inventory.id}") %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

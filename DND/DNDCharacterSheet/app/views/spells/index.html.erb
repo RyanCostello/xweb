@@ -1,6 +1,6 @@
 <h1>Listing spells</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Spell name</th>
     <th>Spell class</th>
@@ -8,10 +8,9 @@
     <th>Spell remaining</th>
     <th>Spell attack</th>
     <th>Spell damage</th>
-	<th>Player id</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
   </tr>
 
 <% @spells.each do |spell| %>
@@ -22,7 +21,6 @@
     <td><%= spell.spell_remaining %></td>
     <td><%= spell.spell_attack %></td>
     <td><%= spell.spell_damage %></td>
-	<td><%= spell.player_id %></td>
     <td><%= link_to 'Show', spell %></td>
     <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
     <td><%= link_to 'Destroy', spell, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -7,7 +7,6 @@ class CreateSpells < ActiveRecord::Migration
       t.integer :spell_remaining
       t.string :spell_attack
       t.string :spell_damage
-      t.integer :player_id
 
       t.timestamps
     end

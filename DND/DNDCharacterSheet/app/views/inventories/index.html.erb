@@ -1,6 +1,6 @@
 <h1>Listing inventories</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Type</th>
     <th>Equipped</th>
@@ -9,10 +9,9 @@
     <th>Attack</th>
     <th>Dual wield</th>
     <th>Benefit</th>
-    <th>Player</th>
-    <th></th>
-    <th></th>
-    <th></th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
   </tr>
 
 <% @inventories.each do |inventory| %>
@@ -24,7 +23,6 @@
     <td><%= inventory.attack %></td>
     <td><%= inventory.dual_wield %></td>
     <td><%= inventory.benefit %></td>
-    <td><%= inventory.player_id %></td>
     <td><%= link_to 'Show', inventory %></td>
     <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
     <td><%= link_to 'Destroy', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
