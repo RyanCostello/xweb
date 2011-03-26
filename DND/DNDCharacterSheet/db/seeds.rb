@@ -32,25 +32,106 @@ end
   s.save!  
 end
 
-(1..5).each do |n|
-  i = Inventory.new
-  i.name = "shiv #{n}"
-  i.item_type = "weapon"
-  i.info = "stabs stuff"
-  i.slot = "1h"
-  i.damage = "10"
-  i.save!
-end
+i = Inventory.new
+i.name = "Shiv"
+i.item_type = "Weapon"
+i.info = "stabs stuff"
+i.slot = "1 Handed"
+i.damage = "10"
+i.save!
 
-(1..5).each do |n|
-  i = Inventory.new
-  i.name = "hat #{n}"
-  i.item_type = "armor"
-  i.info = "stabs stuff"
-  i.slot = "helm"
-  i.bAC = "1"
-  i.bFort = "2"
-  i.bWill = "3"
-  i.bReflex = "4"
-  i.save!
-end
+i = Inventory.new
+i.name = "Mace"
+i.item_type = "Weapon"
+i.info = "slams stuff"
+i.slot = "2 Handed"
+i.damage = "20"
+i.save!
+
+i = Inventory.new
+i.name = "Monarch"
+i.item_type = "Armor"
+i.info = "blocks stuff"
+i.slot = "Shield"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Shako"
+i.item_type = "Armor"
+i.info = "mf stuff"
+i.slot = "Helm"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Crescent moon"
+i.item_type = "Armor"
+i.info = "leaches stuff"
+i.slot = "Amulet"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Viper Magi"
+i.item_type = "Armor"
+i.info = "purple stuff"
+i.slot = "Chest"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Bloodfist"
+i.item_type = "Armor"
+i.info = "punches stuff"
+i.slot = "Gloves"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Bul'Kathos"
+i.item_type = "Armor"
+i.info = "ll stuff"
+i.slot = "Ring"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Snake skin"
+i.item_type = "Armor"
+i.info = "covers stuff"
+i.slot = "Legs"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!
+
+i = Inventory.new
+i.name = "Nats soul"
+i.item_type = "Armor"
+i.info = "kicks stuff"
+i.slot = "Boots"
+i.bAC = "2"
+i.bFort = "2"
+i.bWill = "2"
+i.bReflex = "2"
+i.save!

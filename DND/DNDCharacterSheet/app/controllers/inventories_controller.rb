@@ -25,6 +25,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/new.xml
   def new
     @inventory = Inventory.new
+    @slot = params[:slot]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/1/edit
   def edit
     @inventory = Inventory.find(params[:id])
+    @slot = @inventory.slot
   end
 
   # POST /inventories

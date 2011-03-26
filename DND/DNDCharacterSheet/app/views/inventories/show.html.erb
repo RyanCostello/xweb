@@ -20,31 +20,32 @@
   <%= @inventory.info %>
 </p>
 
-<p>
-  <b>Damage:</b>
-  <%= @inventory.damage %>
-</p>
+<% if @inventory.item_type == "Weapon" %>
+	<p>
+	  <b>Damage:</b>
+	  <%= @inventory.damage %>
+	</p>
+<% else %>
+	<p>
+	  <b>AC:</b>
+	  <%= @inventory.bAC %>
+	</p>
+	
+	<p>
+	  <b>Fort:</b>
+	  <%= @inventory.bFort %>
+	</p>
+	
+	<p>
+	  <b>Will:</b>
+	  <%= @inventory.bWill %>
+	</p>
+	
+	<p>
+	  <b>Reflex:</b>
+	  <%= @inventory.bReflex %>
+	</p>
+<% end %>
 
-<p>
-  <b>AC:</b>
-  <%= @inventory.bAC %>
-</p>
-
-<p>
-  <b>Fort:</b>
-  <%= @inventory.bFort %>
-</p>
-
-<p>
-  <b>Will:</b>
-  <%= @inventory.bWill %>
-</p>
-
-<p>
-  <b>Reflex:</b>
-  <%= @inventory.bReflex %>
-</p>
-
-
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<%= link_to 'Edit Item', edit_inventory_path(@inventory) %> |
+<%= link_to 'Inventory Page', inventories_path %>

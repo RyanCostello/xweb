@@ -2,7 +2,6 @@
   <% if @inventory.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
-
       <ul>
       <% @inventory.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,15 +9,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :item_type %><br />
-    <%= f.text_field :item_type %>
-  </div>
-  <div class="field">
-    <%= f.label :slot %><br />
-    <%= f.check_box :slot %>
-  </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -27,26 +17,49 @@
     <%= f.label :info %><br />
     <%= f.text_field :info %>
   </div>
-  <div class="field">
-    <%= f.label :damage %><br />
-    <%= f.text_field :damage %>
-  </div>
-  <div class="field">
-    <%= f.label :bAC %><br />
-    <%= f.text_field :bAC %>
-  </div>
-  <div class="field">
-    <%= f.label :bFort %><br />
-    <%= f.text_field :bFort %>
-  </div>
-  <div class="field">
-    <%= f.label :bWill %><br />
-    <%= f.text_field :bWill %>
-  </div>
-  <div class="field">
-    <%= f.label :bReflex %><br />
-    <%= f.text_field :bReflex %>
-  </div>
+  <% if @slot != "Weapon" %>
+	  <div class="field">
+		<%= f.label :slot %><br />
+		<b><%= f.label @slot %></b>
+		<%= f.hidden_field :slot, :value => @slot %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :item_type %><br />
+		<b><%= f.label "Armor" %></b>
+	    <%= f.hidden_field :item_type, :value => "Armor" %>
+	  </div>
+	  <div class="field">
+	    <%= f.label "AC Bonus" %><br />
+	    <%= f.text_field :bAC %>
+	  </div>
+	  <div class="field">
+	    <%= f.label "Fort Bonus" %><br />
+	    <%= f.text_field :bFort %>
+	  </div>
+	  <div class="field">
+	    <%= f.label "Will Bonus" %><br />
+	    <%= f.text_field :bWill %>
+	  </div>
+	  <div class="field">
+	    <%= f.label "Reflex Bonus" %><br />
+	    <%= f.text_field :bReflex %>
+	  </div>
+	  <% else %>
+		<div class="field">
+			<% weapontype = ["1 Handed", "2 Handed"] %>
+	    	<%= f.label :slot %><br />
+	    	<%= f.select(:slot, weapontype) %>
+	  	</div>
+		<div class="field">
+	    	<%= f.label :damage %><br />
+	    	<%= f.text_field :damage %>
+	  	</div>
+		<div class="field">
+		    <%= f.label :item_type %><br />
+			<b><%= f.label "Weapon" %></b>
+		    <%= f.hidden_field :item_type, :value => "Weapon" %>
+	  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
