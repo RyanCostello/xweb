@@ -1,17 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  Spell_name: MyString
-  Spell_class: MyString
-  Spell_info: MyString
-  Spell_remaining: 1
-  Spell_attack: MyString
-  Spell_damage: MyString
-
-two:
-  Spell_name: MyString
-  Spell_class: MyString
-  Spell_info: MyString
-  Spell_remaining: 1
-  Spell_attack: MyString
-  Spell_damage: MyString
+spell_one:
+  spell_name: Sky Flourish
+  spell_class: Rogue
+  spell_info: Throws Dagger
+  spell_remaining: 1
+  spell_attack: 10
+  spell_damage: 20

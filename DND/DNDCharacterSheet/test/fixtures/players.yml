@@ -5,9 +5,9 @@ player_1:
   character_class: Rogue
   character_initiative: 11
   character_level: 12
-
-player_2:
-  character_name: Silverize
-  character_class: Ranger
-  character_initiative: 10
-  character_level: 9
+  strength: 13
+  constitution: 10
+  dexterity: 21
+  wisdom: 8
+  charisma: 12
+  intellect: 8

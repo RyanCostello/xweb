@@ -4,6 +4,7 @@
 
 class Player < ActiveRecord::Base
   validates_presence_of :character_name
+  validates_uniqueness_of :character_name
   validates_presence_of :character_level
   validates_presence_of :character_class
   validates_presence_of :strength

@@ -5,7 +5,9 @@
 
 class Inventory < ActiveRecord::Base
   validates_presence_of :name
+  validates_uniqueness_of :name
   validates_presence_of :item_type
+  validates_presence_of :slot
   
   has_many :player_inventories, :dependent => :destroy
 end

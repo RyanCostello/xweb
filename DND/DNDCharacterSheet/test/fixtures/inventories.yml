@@ -1,21 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  type: MyString
-  equipped: false
-  name: MyString
-  info: MyString
-  attack: MyString
-  dual_wield: MyString
-  benefit: MyString
-  player_id: 1
+    item_type: Armor
+    slot: Helm
+    name: Great Helm
+    info: It's Pointy
+    damage: 
+    bAC: 1
+    bFort: 1
+    bWill: 0
+    bReflex: 0
 
 two:
-  type: MyString
-  equipped: false
-  name: MyString
-  info: MyString
-  attack: MyString
-  dual_wield: MyString
-  benefit: MyString
-  player_id: 1
+    item_type: Weapon
+    slot: 1 Handed
+    name: Shiv
+    info: Stabs Stuff
+    damage: 20
+    bAC:
+    bFort:
+    bWill:
+    bReflex:

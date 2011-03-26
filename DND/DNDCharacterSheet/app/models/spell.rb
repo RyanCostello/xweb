@@ -3,6 +3,7 @@
 
 class Spell < ActiveRecord::Base
   validates_presence_of :spell_name
+  validates_uniqueness_of :spell_name
   validates_presence_of :spell_damage
   validates_presence_of :spell_attack
   validates_presence_of :spell_info
