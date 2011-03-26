@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Player:</b>
+  <%= @player_spell.player_id %>
+</p>
+
+<p>
+  <b>Spell:</b>
+  <%= @player_spell.spell_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_spell_path(@player_spell) %> |
+<%= link_to 'Back', player_spells_path %>

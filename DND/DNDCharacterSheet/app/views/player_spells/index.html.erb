@@ -1,0 +1,27 @@
+<h1>Listing player_spells</h1>
+
+<table border="1">
+  <tr>
+    <th>Player</th>
+    <th>Spell</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+<% @player_spells.each do |player_spell| %>
+  <tr>
+	<% player = Player.find(:first, :conditions => ["id = ?", player_spell.player_id]) %>
+    <td><%= player.character_name %></td>
+	<% spell = Spell.find(:first, :conditions => ["id = ?", player_spell.spell_id]) %>
+    <td><%= spell.spell_name %></td>
+    <td><%= link_to 'Show', player_spell %></td>
+    <td><%= link_to 'Edit', edit_player_spell_path(player_spell) %></td>
+    <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Player spell', new_player_spell_path %>

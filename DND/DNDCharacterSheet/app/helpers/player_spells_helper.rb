@@ -1,0 +1,2 @@
+module PlayerSpellsHelper
+end

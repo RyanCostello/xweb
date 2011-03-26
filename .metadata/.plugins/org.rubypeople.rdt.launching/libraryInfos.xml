@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Ruby187" version="1.8.7" vmTypeId="org.rubypeople.rdt.launching.StandardVMType">
+<bootpath>
+<entry path="C:/Ruby187/lib/ruby/site_ruby/1.8"/>
+<entry path="C:/Ruby187/lib/ruby/site_ruby/1.8/i386-msvcrt"/>
+<entry path="C:/Ruby187/lib/ruby/site_ruby"/>
+<entry path="C:/Ruby187/lib/ruby/vendor_ruby/1.8"/>
+<entry path="C:/Ruby187/lib/ruby/vendor_ruby/1.8/i386-msvcrt"/>
+<entry path="C:/Ruby187/lib/ruby/vendor_ruby"/>
+<entry path="C:/Ruby187/lib/ruby/1.8"/>
+<entry path="C:/Ruby187/lib/ruby/1.8/i386-mingw32"/>
+</bootpath>
+</libraryInfo>
+</libraryInfos>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Player:</b>
+  <%= @player_inventory.player_id %>
+</p>
+
+<p>
+  <b>Spell:</b>
+  <%= @player_inventory.inventory_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_inventory_path(@player_inventory) %> |
+<%= link_to 'Back', player_inventories_path %>

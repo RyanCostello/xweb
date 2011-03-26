@@ -1,0 +1,94 @@
+<h1>Listing player_inventories</h1>
+
+<table border="1">  
+
+<% @player_inventories = PlayerInventory.find(:all, :condition => "player_id = '#{session[:p_id]}'") %> 
+
+<% @player_inventories.each do |player_inventory| %>
+  <tr>
+    <% player = Player.find(:first, :conditions => ["id = ?", player_inventory.player_id]) %>
+    <th colspan=3><%= player.character_name + " " %> Equipped Inventory</th>
+  </tr>
+  <tr>
+  	<th>Helm</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Helm"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Helm" %>
+	<td><%= link_to 'Add Helm', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Amulet</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Amulet"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Amulet" %>
+	<td><%= link_to 'Add Amulet', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Chest</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Chest"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Chest" %>
+	<td><%= link_to 'Add Chest', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Gloves</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Gloves"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Gloves" %>
+	<td><%= link_to 'Add Gloves', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Legs</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Legs"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Legs" %>
+	<td><%= link_to 'Add Legs', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Ring</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Ring"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Ring" %>
+	<td><%= link_to 'Add Ring', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Boots</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Boots"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Boots" %>
+	<td><%= link_to 'Add Boots', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Weapon</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Weapon"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Weapon" %>
+	<td><%= link_to 'Add Weapon', edit_inventory_path(@slot) %></td>
+  </tr>
+  <tr>
+  	<th>Shield</th>
+	<% inventory = Inventory.find(:first, :conditions => ["id = ? and slot = ?", player_inventory.inventory_id, "Shield"]) %>
+	<% if inventory %>
+    	<td><%= inventory.name %></td>
+	<% end %>
+	<% @slot = "Shield" %>
+	<td><%= link_to 'Add/Replace Shield', edit_inventory_path(@slot) %></td>
+  </tr>
+<% end %>
+</table>

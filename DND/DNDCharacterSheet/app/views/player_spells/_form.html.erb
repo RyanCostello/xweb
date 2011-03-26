@@ -1,0 +1,29 @@
+<%= form_for(@player_spell) do |f| %>
+  <% if @player_spell.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@player_spell.errors.count, "error") %> prohibited this player_spell from being saved:</h2>
+
+      <ul>
+      <% @player_spell.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  	<% players = Player.all.collect {|i| [h(i.character_name), i.id]}%>
+	<%= f.label :player_id %>
+	<%= f.select(:player_id, players, { :include_blank => false,
+		:selected => @player_spell.player_id}, id => "player_spell_#{@player_spell.id}") %>
+  </div>
+  <div>
+  	<% spells = Spell.all.collect {|i| [h(i.spell_name), i.id]}%>
+	<%= f.label :spell_id %>
+	<%= f.select(:spell_id, spells, { :include_blank => false,
+		:selected => @player_spell.spell_id}, id => "player_spell_#{@player_spell.id}") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
