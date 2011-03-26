@@ -3,12 +3,14 @@
 <table border="1">
   <tr>
     <th>Type</th>
-    <th>Equipped</th>
+	<th>Slot</th>
     <th>Name</th>
     <th>Info</th>
-    <th>Attack</th>
-    <th>Dual wield</th>
-    <th>Benefit</th>
+    <th>Damage</th>
+    <th>AC</th>
+	<th>Fort</th>
+	<th>Will</th>
+	<th>Reflex</th>
 	<th>Show</th>
 	<th>Edit</th>
 	<th>Destroy</th>
@@ -17,12 +19,14 @@
 <% @inventories.each do |inventory| %>
   <tr>
     <td><%= inventory.item_type %></td>
-    <td><%= inventory.equipped %></td>
+    <td><%= inventory.slot %></td>
     <td><%= inventory.name %></td>
     <td><%= inventory.info %></td>
-    <td><%= inventory.attack %></td>
-    <td><%= inventory.dual_wield %></td>
-    <td><%= inventory.benefit %></td>
+    <td><%= inventory.damage %></td>
+    <td><%= inventory.bAC %></td>
+	<td><%= inventory.bFort %></td>
+	<td><%= inventory.bWill %></td>
+	<td><%= inventory.bReflex %></td>
     <td><%= link_to 'Show', inventory %></td>
     <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
     <td><%= link_to 'Destroy', inventory, :confirm => 'Are you sure?', :method => :delete %></td>

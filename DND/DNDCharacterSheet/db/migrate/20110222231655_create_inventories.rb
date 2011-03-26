@@ -2,12 +2,14 @@ class CreateInventories < ActiveRecord::Migration
   def self.up
     create_table :inventories do |t|
       t.string :item_type
-      t.boolean :equipped
+      t.string :slot
       t.string :name
       t.string :info
-      t.string :attack
-      t.string :dual_wield
-      t.string :benefit
+      t.integer :damage
+      t.integer :bAC
+      t.integer :bFort
+      t.integer :bWill
+      t.integer :bReflex
 
       t.timestamps
     end

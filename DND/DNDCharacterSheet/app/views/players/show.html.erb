@@ -1,54 +1,212 @@
 <p id="notice"><%= notice %></p>
+<h3>Character:&#160;<u><%= @player.character_name %></u>
+	&#160;&#160;Class:&#160;<u><%= @player.character_class %></u>
+	&#160;&#160;Level:&#160;<u><%= @player.character_level%></u>
+	&#160;&#160;Initiative:&#160;<u><%= @player.character_initiative %></u></h3>
+<table>
+	<tr>
+	<td colspan=2; style="float: left; margin: 20px 50px 20px 400px;">
+		<table border=1>
+			<tr>
+				<th colspan=2>Abilities</th>
+			</tr>
+			  <th>Strength:</th>
+			  <td><%= @player.strength %></td>
+			</tr>
+			<tr>
+			  <th>Constitution:</th>
+			  <td><%= @player.constitution %></td>
+			</tr>
+			<tr>
+			  <th>Dexterity:</th>
+			  <td><%= @player.dexterity %></td>
+			</tr>
+			<tr>
+			  <th>Intellect:</th>
+			  <td><%= @player.intellect %></td>
+			</tr>
+			<tr>
+			  <th>Wisdom:</th>
+			  <td><%= @player.wisdom %></td>
+			</tr>
+			<tr>
+			  <th>Charisma:</th>
+			  <td><%= @player.charisma %></td>
+			</tr>
+		</table>
+	</td>
+<% @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>
+<% @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>
+<% @inventory = Player_inventory.find(:all, :conditions => "player_id = '#{session[:p_id]}'") %>
 
-<p>
-  <b>Name:</b>
-  <%= @player.character_name %>
-</p>
-
-<p>
-  <b>Class:</b>
-  <%= @player.character_class %>
-</p>
-
-<p>
-  <b>Initiative:</b>
-  <%= @player.character_initiative %>
-</p>
-
-<p>
-  <b>Level:</b>
-  <%= @player.character_level %>
-</p>
-
-<p>
-  <b>Strength:</b>
-  <%= @player.strength %>
-</p>
-
-<p>
-  <b>Constitution:</b>
-  <%= @player.constitution %>
-</p>
-
-<p>
-  <b>Dexterity:</b>
-  <%= @player.dexterity %>
-</p>
-
-<p>
-  <b>Intellect:</b>
-  <%= @player.intellect %>
-</p>
-
-<p>
-  <b>Wisdom:</b>
-  <%= @player.wisdom %>
-</p>
-
-<p>
-  <b>Charisma:</b>
-  <%= @player.charisma %>
-</p>
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<% ac = 0 %>
+<% if !@defense %>
+	<% if @player.character_class == "Rogue" or @player.character_class == "Mage" or @player.character_class == "Warlock" or
+			@player.character_class == "Cleric"%>
+			<% if session[:dex_mod] > session[:int_mod] %>
+				<% ac = session[:dex_mod] %>
+			<% else %>
+					<% ac = session[:int_mod] %> 
+			<% end %>
+	<% end %>
+	<% if session[:str_mod] > session[:con_mod] %>
+		<% fort = session[:str_mod]%>
+		<% else %>
+			<% fort = session[:con_mod] %>
+	<% end %>
+	<% if session[:dex_mod] > session[:int_mod] %>
+		<% ref = session[:dex_mod]%>
+		<% else %>
+			<% ref = session[:int_mod] %>
+	<% end %>
+	<% if session[:wis_mod] > session[:char_mod] %>
+		<% will = session[:wis_mod]%>
+		<% else %>
+			<% will = session[:char_mod] %>
+	<% end %>
+	<% @defense = Defense.new(:AC => 10+ac, :Fort => 10+fort, 
+		:Reflex => 10+ref, :Will => 10+will, :player_id => @player.id) %>
+	<% @defense.save %>
+<% end %>
+<% if !@skill %>
+	<% @skill = Skill.new(:Athletics => session[:str_mod], :Acrobatics => session[:dex_mod], 
+			:Stealth => session[:dex_mod], :Arcana => session[:int_mod], :player_id => @player.id,
+			:History => session[:int_mod], :Religion => session[:int_mod], :Bluff => session[:char_mod],
+			:Diplomacy => session[:char_mod], :Intimidate => session[:char_mod], :Streetwise => session[:char_mod],
+			:Dungeoneering => session[:wis_mod], :Heal => session[:wis_mod], :Insight => session[:wis_mod],
+			:Nature => session[:wis_mod], :Perception => session[:wis_mod], :Thievery => session[:dex_mod],
+			:Endurance => session[:con_mod]) %>
+	<% @skill.save %>
+<% end %>
+<td colspan=2; style="float: right; margin: 20px 50px 20px 50px;">
+	<table border="1">
+		<tr>
+			<th colspan=2>Defenses</th>
+		</tr>
+		<tr>
+		  <th>AC:</th>
+		  <td><%= @defense.AC + (@player.character_level/2) + session[:ac] %></td>
+		</tr>
+		<tr>
+		  <th>Fortitude:</th>
+		  <td><%= @defense.Fort + (@player.character_level/2) + session[:fort] %></td>
+		</tr>
+		<tr>
+		  <th>Reflex:</th>
+		  <td><%= @defense.Reflex + (@player.character_level/2) + session[:ref] %></td>
+		</tr>
+		<tr>
+		  <th>Will:</th>
+		  <td><%= @defense.Will + (@player.character_level/2) + session[:will]%></td>
+		</tr>
+	</table>
+</td>
+<tr>
+<td colspan=2; style="float: left; margin: 20px 50px 20px 400px;">
+	<table border="1">
+	  <tr>
+	  	<th colspan = "2"> Skills </th>
+	  </tr>
+	  <tr>
+	  	<th>Acrobatics</th>
+	    <td><%= @skill.Acrobatics + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Arcana</th>
+		<td><%= @skill.Arcana + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Athletics</th>
+		<td><%= @skill.Athletics + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Bluff</th>
+		<td><%= @skill.Bluff + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Diplomacy</th>
+		<td><%= @skill.Diplomacy + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Dungeoneering</th>
+		<td><%= @skill.Dungeoneering + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Endurance</th>
+		<td><%= @skill.Endurance + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Heal</th>
+		<td><%= @skill.Heal + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>History</th>
+		<td><%= @skill.History + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Insight</th>
+		<td><%= @skill.Insight + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Intimidate</th>
+		<td><%= @skill.Intimidate + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Nature</th>
+		<td><%= @skill.Nature + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Perception</th>
+		<td><%= @skill.Perception + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Religion</th>
+		<td><%= @skill.Religion + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Stealth</th>
+		<td><%= @skill.Stealth + (@player.character_level/2) %></td>
+	  </tr>  
+	  <tr>
+	  	<th>Streetwise</th>
+		<td><%= @skill.Streetwise + (@player.character_level/2) %></td>
+	  </tr>
+	  <tr>
+	  	<th>Thievery</th>
+		<td><%= @skill.Thievery + (@player.character_level/2) %></td>
+	  </tr>
+	</table>
+</td>
+<td colspan=2; style="float: right; margin: 20px 50px 20px 50px;">
+	<table border="1">
+		<tr>
+			<th colspan=2>Defenses</th>
+		</tr>
+		<tr>
+		  <th>AC:</th>
+		  <td><%= @defense.AC + (@player.character_level/2) %></td>
+		</tr>
+		<tr>
+		  <th>Fortitude:</th>
+		  <td><%= @defense.Fort + (@player.character_level/2) %></td>
+		</tr>
+		<tr>
+		  <th>Reflex:</th>
+		  <td><%= @defense.Reflex + (@player.character_level/2) %></td>
+		</tr>
+		<tr>
+		  <th>Will:</th>
+		  <td><%= @defense.Will + (@player.character_level/2) %></td>
+		</tr>
+	</table>
+</td>
+</tr>
+<tr>
+	<td>
+		<%= link_to 'Back', players_path %>
+	</td>
+	<td>
+		<%= link_to 'Edit', edit_player_path(session[:p_id]) %></td>
+	</td>
+</tr>
+</table>

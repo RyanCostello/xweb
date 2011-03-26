@@ -1,4 +1,4 @@
-#Calculated from stats and are unique to a character.
+#Calculated from player.
 
 class Defense < ActiveRecord::Base
     belongs_to :player

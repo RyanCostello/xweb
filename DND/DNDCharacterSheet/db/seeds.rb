@@ -1,10 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+# Seeds player, spell, and inventory.  Defenses and skills will be calculated.  
+# Player inventories and player spells not seeded to test functionallity manually.
 
 puts "Destroying all data!"
 Player.destroy_all
@@ -32,19 +27,30 @@ end
   s.spell_class = "rogue"
   s.spell_info = "stabs stuff"
   s.spell_remaining = "1"
-  s.spell_attack = "+10"
-  s.spell_damage = "2w"
+  s.spell_attack = "10"
+  s.spell_damage = "2"
   s.save!  
 end
 
 (1..5).each do |n|
   i = Inventory.new
   i.name = "shiv #{n}"
-  i.item_type = "dagger"
+  i.item_type = "weapon"
   i.info = "stabs stuff"
-  i.equipped = "true"
-  i.attack = "2w"
-  i.dual_wield = "true"
-  i.save!  
+  i.slot = "1h"
+  i.damage = "10"
+  i.save!
 end
 
+(1..5).each do |n|
+  i = Inventory.new
+  i.name = "hat #{n}"
+  i.item_type = "armor"
+  i.info = "stabs stuff"
+  i.slot = "helm"
+  i.bAC = "1"
+  i.bFort = "2"
+  i.bWill = "3"
+  i.bReflex = "4"
+  i.save!
+end
