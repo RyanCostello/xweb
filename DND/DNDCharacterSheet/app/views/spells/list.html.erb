@@ -1,0 +1,33 @@
+<h1>Listing spells</h1>
+
+<table border="1">
+  <tr>
+    <th>Spell name</th>
+    <th>Spell class</th>
+    <th>Spell info</th>
+    <th>Spell remaining</th>
+    <th>Spell attack</th>
+    <th>Spell damage</th>
+    <th>Add</th>
+  </tr>
+<% @spells = Spell.find(:all, :condition => ["spell_class = ?", @char_class]) %>
+<% @spells.each do |spell| %>
+  <tr>
+    <td><%= spell.spell_name %></td>
+    <td><%= spell.spell_class %></td>
+    <td><%= spell.spell_info %></td>
+    <td><%= spell.spell_remaining %></td>
+    <td><%= spell.spell_attack %></td>
+    <td><%= spell.spell_damage %></td>
+	<td>
+	<FORM>
+		<input type="button" onClick=<%PlayerSpell.new(:player_id => session[:p_id], :spell_id => spell.id)%>>
+	</FORM>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'SpellBook', player_spell_path() %>

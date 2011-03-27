@@ -28,8 +28,8 @@ class PlayersController < ApplicationController
     session[:will] = 0
     session[:fort] = 0
     
-    @def = PlayerInventory.find(:all, :condition => {:player_id => session[:p_id]})
-    @defen = Inventory.find(:all, :condition => {:id => @def.inventory_id})
+    @def = PlayerInventory.where("player_id = ?", session[:p_id])
+    @defen = Inventory.where("id = ?", @def.inventory_id)
     
     if @defen
       @defen.each do |defen|

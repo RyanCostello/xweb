@@ -1,4 +1,4 @@
-<h1>Listing player_inventories</h1>
+<h1>Equipped Items</h1>
 
 <table border="1">  
 
@@ -16,7 +16,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Helm" %>
-	<td><%= link_to 'Add Helm', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Helm', inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Amulet</th>
@@ -25,7 +25,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Amulet" %>
-	<td><%= link_to 'Add Amulet', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Amulet', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Chest</th>
@@ -34,7 +34,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Chest" %>
-	<td><%= link_to 'Add Chest', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Chest', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Gloves</th>
@@ -43,7 +43,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Gloves" %>
-	<td><%= link_to 'Add Gloves', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Gloves', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Legs</th>
@@ -52,7 +52,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Legs" %>
-	<td><%= link_to 'Add Legs', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Legs', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Ring</th>
@@ -61,7 +61,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Ring" %>
-	<td><%= link_to 'Add Ring', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Ring', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Boots</th>
@@ -70,7 +70,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Boots" %>
-	<td><%= link_to 'Add Boots', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Boots', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Weapon</th>
@@ -79,7 +79,7 @@
     	<td><%= inventory.name %></td>
 	<% end %>
 	<% @slot = "Weapon" %>
-	<td><%= link_to 'Add Weapon', edit_inventory_path(@slot) %></td>
+	<td><%= link_to 'Add/Replace Weapon', edit_inventory_path(@slot) %></td>
   </tr>
   <tr>
   	<th>Shield</th>

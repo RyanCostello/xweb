@@ -1,0 +1,36 @@
+<table border="1">
+  <tr>
+    <th>Type</th>
+	<th>Slot</th>
+    <th>Name</th>
+    <th>Info</th>
+    <th>Dice Damage</th>
+    <th>AC</th>
+	<th>Fort</th>
+	<th>Will</th>
+	<th>Reflex</th>
+	<th>Add</th>
+  </tr>
+<% @inventories = Inventory.find(:all, :condition => ["slot = ?", @slot]) %>
+<% @inventories.each do |inventory| %>
+  <tr style="text-align:center;">
+    <td><%= inventory.item_type %></td>
+    <td><%= inventory.slot %></td>
+    <td><%= inventory.name %></td>
+    <td><%= inventory.info %></td>
+    <td><%= inventory.damage %></td>
+    <td><%= inventory.bAC %></td>
+	<td><%= inventory.bFort %></td>
+	<td><%= inventory.bWill %></td>
+	<td><%= inventory.bReflex %></td>
+	<td>
+    <FORM>
+		<input type="button" onClick=<%PlayerInventory.new(:player_id => session[:p_id], :inventory_id => inventory.id)%>>
+	</FORM>
+	</td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'Equipped Items', player_inventory_path() %>
+
+

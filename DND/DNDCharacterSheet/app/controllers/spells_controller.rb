@@ -10,6 +10,15 @@ class SpellsController < ApplicationController
     end
   end
 
+  def list
+    @char_class = params[:character_class]
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @spell }
+    end
+  end
+  
   # GET /spells/1
   # GET /spells/1.xml
   def show

@@ -9,6 +9,15 @@ class InventoriesController < ApplicationController
       format.xml  { render :xml => @inventories }
     end
   end
+  
+  def list
+    @slot = params[:slot]
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @inventory }
+    end
+  end
 
   # GET /inventories/1
   # GET /inventories/1.xml
