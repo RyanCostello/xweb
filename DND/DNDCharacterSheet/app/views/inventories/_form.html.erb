@@ -28,37 +28,39 @@
 		<b><%= f.label "Armor" %></b>
 	    <%= f.hidden_field :item_type, :value => "Armor" %>
 	  </div>
+	  <% statbonus = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] %>
 	  <div class="field">
 	    <%= f.label "AC Bonus" %><br />
-	    <%= f.text_field :bAC %>
+	    <%= f.select(:bAC, statbonus) %>
 	  </div>
 	  <div class="field">
 	    <%= f.label "Fort Bonus" %><br />
-	    <%= f.text_field :bFort %>
+	    <%= f.select(:bFort, statbonus) %>
 	  </div>
 	  <div class="field">
 	    <%= f.label "Will Bonus" %><br />
-	    <%= f.text_field :bWill %>
+	    <%= f.select(:bWill, statbonus) %>
 	  </div>
 	  <div class="field">
 	    <%= f.label "Reflex Bonus" %><br />
-	    <%= f.text_field :bReflex %>
+	    <%= f.select(:bReflex, statbonus) %>
 	  </div>
 	  <% else %>
+	  	<div class="field">
+		    <%= f.label :item_type %><br />
+			<b><%= f.label "Weapon" %></b>
+		    <%= f.hidden_field :item_type, :value => "Weapon" %>
+	  	</div>
 		<div class="field">
 			<% weapontype = ["1 Handed", "2 Handed"] %>
 	    	<%= f.label :slot %><br />
 	    	<%= f.select(:slot, weapontype) %>
 	  	</div>
 		<div class="field">
-	    	<%= f.label :damage %><br />
-	    	<%= f.text_field :damage %>
-	  	</div>
-		<div class="field">
-		    <%= f.label :item_type %><br />
-			<b><%= f.label "Weapon" %></b>
-		    <%= f.hidden_field :item_type, :value => "Weapon" %>
-	  </div>
+			<% damageValue = ["4", "6", "8", "10", "12"]%>
+	    	<%= f.label "Dice Roll" %><br />
+	    	<%= f.select(:damage, damageValue) %>
+	  	</div>		
   <% end %>
   <div class="actions">
     <%= f.submit %>

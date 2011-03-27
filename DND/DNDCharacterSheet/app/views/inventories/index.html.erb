@@ -6,7 +6,7 @@
 	<th>Slot</th>
     <th>Name</th>
     <th>Info</th>
-    <th>Damage</th>
+    <th>Dice Damage</th>
     <th>AC</th>
 	<th>Fort</th>
 	<th>Will</th>
@@ -16,7 +16,7 @@
   </tr>
 <% @inventories = Inventory.order(:slot) %>
 <% @inventories.each do |inventory| %>
-  <tr>
+  <tr style="text-align:center;">
     <td><%= inventory.item_type %></td>
     <td><%= inventory.slot %></td>
     <td><%= inventory.name %></td>
