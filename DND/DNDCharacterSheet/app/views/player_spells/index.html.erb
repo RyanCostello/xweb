@@ -1,5 +1,18 @@
-<h1>Listing player_spells</h1>
+<script type="text/javascript">
+  function useSpell(spellUsed, attack, spellDamage, damage)
+  {
+  	 var spell = document.getElementById("spellPicked");
+	 spell.value = spellUsed;
+	 var atkResult = document.getElementById("attackResult");
+  	 atkResult.value = Math.floor(attack + 1 + Math.random()*20);
+	 var damResult = document.getElementById("damageResult");
+  	 damResult.value = Math.floor(spellDamage + Math.random()*damage);
+  }
+</script>
 
+<h1>Player SpellBook</h1>
+
+<form>
 <table border="1">
   <tr>
     <th>Player</th>
@@ -8,20 +21,29 @@
     <th>Edit</th>
     <th>Destroy</th>
   </tr>
+    <% @locateWeapon = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]]) %>
+    <% @locateWeapon.each do |findWeapon|%>
+		<% @weapon = Inventory.find(:first, :conditions => ["id = ? and item_type = ?", findWeapon.inventory_id, "Weapon"]) %>
+		<% if @weapon %>
+			<% @foundWeapon = @weapon %>
+		<% end %>
+	<% end %>
+	
+	<% @player_spells = PlayerSpell.find(:all, :conditions => ["player_id = ?", session[:p_id]])%>
 
 <% @player_spells.each do |player_spell| %>
   <tr>
-	<% player = Player.find(:first, :conditions => ["id = ?", player_spell.player_id]) %>
-    <td><%= player.character_name %></td>
 	<% spell = Spell.find(:first, :conditions => ["id = ?", player_spell.spell_id]) %>
     <td><%= spell.spell_name %></td>
     <td><%= link_to 'Show', player_spell %></td>
     <td><%= link_to 'Edit', edit_player_spell_path(player_spell) %></td>
     <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><input type="button" onclick="skillCheck('<%= spell.spell_name %>', <%= spell.spell_attack %>, 
+		<%= spell.spell_damage %>, <%= spell.spell_damage * @foundWeapon.damage %>)" value="Use Spell" /></td>
   </tr>
 <% end %>
 </table>
-
+</form>
 <br />
 
 <%= link_to 'New Player spell', new_player_spell_path %>

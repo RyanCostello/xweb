@@ -36,6 +36,20 @@ class PlayerSpellsController < ApplicationController
   def edit
     @player_spell = PlayerSpell.find(params[:id])
   end
+  
+  def addSpell
+    @player_spell = PlayerSpell.new(:player_id => session[p_id], :spell_id => params[:id])
+    
+    respond_to do |format|
+      if @player_spell.save
+        format.html { redirect_to(@player_spell, :notice => 'Player spell was successfully created.') }
+        format.xml  { render :xml => @player_spell, :status => :created, :location => @player_spell }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @player_spell.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # POST /player_spells
   # POST /player_spells.xml

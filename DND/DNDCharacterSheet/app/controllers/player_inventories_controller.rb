@@ -9,6 +9,20 @@ class PlayerInventoriesController < ApplicationController
       format.xml  { render :xml => @player_inventories }
     end
   end
+  
+  def addItem
+    @player_inventory = PlayerInventory.new(:player_id => session[p_id], :inventory_id => params[:id])
+    
+    respond_to do |format|
+      if @player_inventory.save
+        format.html { redirect_to(@player_inventory, :notice => 'Player inventory was successfully created.') }
+        format.xml  { render :xml => @player_inventory, :status => :created, :location => @player_inventory }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @player_inventory.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /player_inventories/1
   # GET /player_inventories/1.xml

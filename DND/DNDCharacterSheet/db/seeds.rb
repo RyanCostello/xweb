@@ -5,12 +5,14 @@ puts "Destroying all data!"
 Player.destroy_all
 Spell.destroy_all
 Inventory.destroy_all
+PlayerInventory.destroy_all
+PlayerSpell.destroy_all
 
 (1..10).each do |n|
   p = Player.new
   p.character_name = "Faith #{n}"
   p.character_class = "Rogue"
-  p.character_initiative = "11"
+  p.character_initiative = "#{n}"
   p.character_level = "12"
   p.strength = "13"
   p.constitution = "10"
@@ -41,6 +43,14 @@ i.damage = "10"
 i.save!
 
 i = Inventory.new
+i.name = "Fist"
+i.item_type = "Weapon"
+i.info = "punches stuff"
+i.slot = "1 Handed"
+i.damage = "4"
+i.save!
+
+i = Inventory.new
 i.name = "Mace"
 i.item_type = "Weapon"
 i.info = "slams stuff"
@@ -60,36 +70,91 @@ i.bReflex = "2"
 i.save!
 
 i = Inventory.new
-i.name = "Shako"
+i.name = "Arm"
 i.item_type = "Armor"
-i.info = "mf stuff"
+i.info = ""
+i.slot = "Shield"
+i.bAC = "10"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "String"
+i.item_type = "Armor"
+i.info = ""
+i.slot = "Ring"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "Hat"
+i.item_type = "Armor"
+i.info = ""
 i.slot = "Helm"
-i.bAC = "2"
-i.bFort = "2"
-i.bWill = "2"
-i.bReflex = "2"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
 i.save!
 
 i = Inventory.new
-i.name = "Crescent moon"
+i.name = "T-Shirt"
 i.item_type = "Armor"
-i.info = "leaches stuff"
-i.slot = "Amulet"
-i.bAC = "2"
-i.bFort = "2"
-i.bWill = "2"
-i.bReflex = "2"
-i.save!
-
-i = Inventory.new
-i.name = "Viper Magi"
-i.item_type = "Armor"
-i.info = "purple stuff"
+i.info = ""
 i.slot = "Chest"
-i.bAC = "2"
-i.bFort = "2"
-i.bWill = "2"
-i.bReflex = "2"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "Mittens"
+i.item_type = "Armor"
+i.info = ""
+i.slot = "Gloves"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "Neck Tie"
+i.item_type = "Armor"
+i.info = ""
+i.slot = "Amulet"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "Jeans"
+i.item_type = "Armor"
+i.info = ""
+i.slot = "Legs"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
+i.save!
+
+i = Inventory.new
+i.name = "Shoes"
+i.item_type = "Armor"
+i.info = ""
+i.slot = "Boots"
+i.bAC = "0"
+i.bFort = "0"
+i.bWill = "0"
+i.bReflex = "0"
 i.save!
 
 i = Inventory.new

@@ -9,7 +9,7 @@ class PlayersController < ApplicationController
       format.xml  { render :xml => @players }
     end
   end
-
+  
   # GET /players/1
   # GET /players/1.xml
   def show
@@ -28,15 +28,47 @@ class PlayersController < ApplicationController
     session[:will] = 0
     session[:fort] = 0
     
-    @def = PlayerInventory.where("player_id = ?", session[:p_id])
-    @defen = Inventory.where("id = ?", @def.inventory_id)
+    @item = PlayerInventory.find(:first, :conditions => ["player_id = ?", session[:p_id]])
     
-    if @defen
-      @defen.each do |defen|
-        session[:ac] += defen.bAC
-        session[:ref] += defen.bRef
-        session[:will] += defen.bWill
-        session[:fort] += defen.bFort
+    if !@item
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Hat"])    
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Fist"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "T-Shirt"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Jeans"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Neck Tie"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Shoes"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "String"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Arm"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Mittens"])
+      foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
+      foo.save
+    end
+    
+    @def = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]])    
+    
+    @def.each do |defen|
+      @addValue = Inventory.find(:first, :conditions => ["id = ?", defen.inventory_id])
+      if @addValue.item_type == "Armor"
+        session[:ac] += @addValue.bAC
+        session[:ref] += @addValue.bReflex
+        session[:will] += @addValue.bWill
+        session[:fort] += @addValue.bFort
       end
     end
     
@@ -104,6 +136,10 @@ class PlayersController < ApplicationController
         format.xml  { render :xml => @player.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def calculateSkill
+    
   end
 
   # DELETE /players/1

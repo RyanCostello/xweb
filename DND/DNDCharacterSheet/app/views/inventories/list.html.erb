@@ -23,11 +23,7 @@
 	<td><%= inventory.bFort %></td>
 	<td><%= inventory.bWill %></td>
 	<td><%= inventory.bReflex %></td>
-	<td>
-    <FORM>
-		<input type="button" onClick=<%PlayerInventory.new(:player_id => session[:p_id], :inventory_id => inventory.id)%>>
-	</FORM>
-	</td>
+	<td><%= link_to 'Add Item', {:controller => "player_inventory", :action => "addItem", :id => inventory.id} %></td>
   </tr>
 <% end %>
 </table>

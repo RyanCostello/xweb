@@ -11,11 +11,11 @@ class InventoriesController < ApplicationController
   end
   
   def list
-    @slot = params[:slot]
+    @slot = params[:id]
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @inventory }
+      format.xml  { render :xml => @slot }
     end
   end
 
