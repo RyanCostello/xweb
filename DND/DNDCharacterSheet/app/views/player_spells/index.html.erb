@@ -1,12 +1,16 @@
 <script type="text/javascript">
-  function useSpell(spellUsed, attack, spellDamage, damage)
+  function useSpell(spellUsed, attack, spellDamage, damage, spellWeapon)
   {
   	 var spell = document.getElementById("spellPicked");
 	 spell.value = spellUsed;
 	 var atkResult = document.getElementById("attackResult");
-  	 atkResult.value = Math.floor(attack + 1 + Math.random()*20);
+  	 atkResult.value = Math.floor(attack + Math.random()*21);
 	 var damResult = document.getElementById("damageResult");
-  	 damResult.value = Math.floor(spellDamage + Math.random()*damage);
+	 var dmg = 0;
+	 for(var counter = 0; counter < spellWeapon; counter++){
+	 	dmg += Math.floor(1 + Math.random()*damage);		
+	 }
+  	 damResult.value = spellDamage + dmg;
   }
 </script>
 
@@ -14,12 +18,14 @@
 
 <form>
 <table border="1">
+	<% @player = Player.find(:first, :conditions => ["id = ?", session[:p_id]]) %>
   <tr>
-    <th>Player</th>
+  	<th colspan=3><%= @player.character_name %></th>
+  </tr>
+  <tr>
     <th>Spell</th>
     <th>Show</th>
-    <th>Edit</th>
-    <th>Destroy</th>
+    <th>Remove</th>
   </tr>
     <% @locateWeapon = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]]) %>
     <% @locateWeapon.each do |findWeapon|%>
@@ -35,15 +41,19 @@
   <tr>
 	<% spell = Spell.find(:first, :conditions => ["id = ?", player_spell.spell_id]) %>
     <td><%= spell.spell_name %></td>
-    <td><%= link_to 'Show', player_spell %></td>
-    <td><%= link_to 'Edit', edit_player_spell_path(player_spell) %></td>
+    <td><%= link_to 'Show', {:controller => "spells" }, :action => "show", :id => player_spell.spell_id %></td>
     <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><input type="button" onclick="skillCheck('<%= spell.spell_name %>', <%= spell.spell_attack %>, 
-		<%= spell.spell_damage %>, <%= spell.spell_damage * @foundWeapon.damage %>)" value="Use Spell" /></td>
+	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= spell.spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
   </tr>
 <% end %>
+	<tr>
+	  	<th>Used spell <input type="text" readonly=true style="text-align:center;" id="spellPicked"/></th>
+		<th>Attack: <input type="text" id="attackResult" readonly=true style="text-align:center;"/></th>
+		<th>Damage: <input type="text" id="damageResult" readonly=true style="text-align:center;"/></th>
+	</tr>
 </table>
 </form>
 <br />
 
-<%= link_to 'New Player spell', new_player_spell_path %>
+<%= link_to 'Add Spell', {:controller => "spells" }, :action => "list", :id => @player.character_class %>
+<%= link_to 'Character', player_path(:id => session[:p_id]) %>

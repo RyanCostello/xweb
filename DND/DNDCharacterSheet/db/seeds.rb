@@ -26,11 +26,12 @@ end
 (1..5).each do |n|
   s = Spell.new
   s.spell_name = "stab #{n}"
-  s.spell_class = "rogue"
+  s.spell_class = "Rogue"
   s.spell_info = "stabs stuff"
   s.spell_remaining = "1"
   s.spell_attack = "10"
-  s.spell_damage = "2"
+  s.spell_damage = "5"
+  s.spell_weapon = "2"
   s.save!  
 end
 

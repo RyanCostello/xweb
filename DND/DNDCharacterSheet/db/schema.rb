@@ -93,8 +93,9 @@ ActiveRecord::Schema.define(:version => 20110310192443) do
     t.string   "spell_class"
     t.string   "spell_info"
     t.integer  "spell_remaining"
-    t.string   "spell_attack"
-    t.string   "spell_damage"
+    t.integer  "spell_attack"
+    t.integer  "spell_weapon"
+    t.integer  "spell_damage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
