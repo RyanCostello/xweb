@@ -11,7 +11,8 @@ class InventoriesController < ApplicationController
   end
   
   def list
-    @slot = params[:id]
+    @slot = params[:slot]
+    @id = params[:id]
     
     respond_to do |format|
       format.html # show.html.erb

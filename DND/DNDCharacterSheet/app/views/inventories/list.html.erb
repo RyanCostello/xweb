@@ -11,7 +11,11 @@
 	<th>Reflex</th>
 	<th>Add</th>
   </tr>
-<% @inventories = Inventory.find(:all, :conditions => ["slot = ?", @slot]) %>
+<% if @slot == "1 Handed" or @slot == "2 Handed" %>
+	<% @inventories = Inventory.find(:all, :conditions => ["item_type = ?", "Weapon"]) %>
+	<% else %>
+	<% @inventories = Inventory.find(:all, :conditions => ["slot = ?", @slot]) %>
+<% end %>
 <% @inventories.each do |inventory| %>
   <tr style="text-align:center;">
     <td><%= inventory.item_type %></td>
@@ -23,10 +27,10 @@
 	<td><%= inventory.bFort %></td>
 	<td><%= inventory.bWill %></td>
 	<td><%= inventory.bReflex %></td>
-	<td><%= link_to 'Add Item', {:controller => "player_inventory", :action => "addItem", :id => inventory.id} %></td>
+	<td><%= link_to 'Add Item', {:controller => "player_inventories", :action => "addItem", :id => inventory.id, :oldId => @id} %></td>
   </tr>
 <% end %>
 </table>
-<%= link_to 'Equipped Items', player_inventory_path() %>
+<%= link_to 'Equipped Items', player_inventories_path %>
 
 

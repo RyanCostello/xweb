@@ -11,11 +11,13 @@ class PlayerInventoriesController < ApplicationController
   end
   
   def addItem
+    @remove_item = PlayerInventory.find(:first, :conditions => ["inventory_id = ?", params[:oldId]])
+    @remove_item.destroy
     @player_inventory = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => params[:id])
     
     respond_to do |format|
       if @player_inventory.save
-        format.html { redirect_to(@player_inventory, :notice => 'Player inventory was successfully created.') }
+        format.html { redirect_to(player_inventories_url, :notice => 'Player inventory was successfully created.') }
         format.xml  { render :xml => @player_inventory, :status => :created, :location => @player_inventory }
       else
         format.html { render :action => "new" }

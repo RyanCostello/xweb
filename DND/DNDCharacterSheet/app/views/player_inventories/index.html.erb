@@ -3,7 +3,7 @@
 <% @player_inventories = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]]) %> 
   <tr>
     <% player = Player.find(:first, :conditions => ["id = ?", session[:p_id]]) %>
-    <th colspan=3><%= player.character_name + " " %> Equipped Inventory</th>
+    <th colspan=4><%= player.character_name + " " %> Equipped Inventory</th>
   </tr>
   
 <% @player_inventories.each do |player_inventory| %>
@@ -12,7 +12,8 @@
   	<th><%= inventory.slot %></th>
     <td><%= inventory.name %></td>
 	<% @slot = inventory.slot %>
-	<td><%= link_to 'Add/Replace ' + inventory.slot, { :controller => "inventories"  }, :action => "list", :id => @slot %></td>
+	<td><%= link_to 'show', { :controller => "inventories", :action => "show", :id => inventory.id } %></td>
+	<td><%= link_to 'Replace ' + inventory.slot, { :controller => "inventories", :action => "list", :slot => @slot, :id => inventory.id } %></td>
   </tr>
 <% end %>
 </table>
