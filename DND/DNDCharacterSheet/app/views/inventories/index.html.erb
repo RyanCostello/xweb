@@ -1,6 +1,6 @@
 <h1>Inventory List</h1>
 
-<table border="1">
+<table border="1" style="text-align:center;" cellpadding="5%">
   <tr>
     <th>Type</th>
 	<th>Slot</th>
@@ -15,8 +15,8 @@
 	<th>Destroy</th>
   </tr>
 <% @inventories = Inventory.order(:slot) %>
-<% @inventories.each do |inventory| %>
-  <tr style="text-align:center;">
+<% @inventories.each do |inventory| %>	
+  <tr>
     <td><%= inventory.item_type %></td>
     <td><%= inventory.slot %></td>
     <td><%= inventory.name %></td>
@@ -26,20 +26,22 @@
 	<td><%= inventory.bFort %></td>
 	<td><%= inventory.bWill %></td>
 	<td><%= inventory.bReflex %></td>
-    <td><%= link_to 'Edit Item', edit_inventory_path(inventory) %></td>
+    <td><%= link_to 'Edit Item', edit_inventory_path(inventory.id) %></td>
     <td><%= link_to 'Destroy Item', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
+<br /> | 
+<%= link_to 'New Helm', {:action => "new", :slot => "Helm", :item_type => "Armor"} %> | 
+<%= link_to 'New Amulet', {:action => "new", :slot => "Amulet", :item_type => "Armor"} %> | 
+<%= link_to 'New Chest', {:action => "new", :slot => "Chest", :item_type => "Armor"} %> | 
+<%= link_to 'New Gloves', {:action => "new", :slot => "Gloves", :item_type => "Armor"} %> | 
+<%= link_to 'New Ring', {:action => "new", :slot => "Ring", :item_type => "Armor"} %> | 
+<%= link_to 'New Legs', {:action => "new", :slot => "Legs", :item_type => "Armor"} %> | 
+<%= link_to 'New Boots', {:action => "new", :slot => "Boots", :item_type => "Armor"} %> | 
+<%= link_to 'New Weapon', {:action => "new", :slot => "1 Handed", :item_type => "Weapon"} %> | 
+<%= link_to 'New Shield', {:action => "new", :slot => "Shield", :item_type => "Armor"} %> | 
 <br />
-<%= link_to 'New Helm', {:action => "new", :slot => "Helm"} %>
-<%= link_to 'New Amulet', {:action => "new", :slot => "Amulet"} %>
-<%= link_to 'New Chest', {:action => "new", :slot => "Chest"} %>
-<%= link_to 'New Gloves', {:action => "new", :slot => "Gloves"} %>
-<%= link_to 'New Ring', {:action => "new", :slot => "Ring"} %>
-<%= link_to 'New Legs', {:action => "new", :slot => "Legs"} %>
-<%= link_to 'New Boots', {:action => "new", :slot => "Boots"} %>
-<%= link_to 'New Weapon', {:action => "new", :slot => "Weapon"} %>
-<%= link_to 'New Shield', {:action => "new", :slot => "Shield"} %>
-
+<br />
+<%= link_to 'Character List', players_path %> 

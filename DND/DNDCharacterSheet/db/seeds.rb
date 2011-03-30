@@ -32,6 +32,8 @@ end
   s.spell_attack = "10"
   s.spell_damage = "12"
   s.spell_weapon = "1"
+  s.spell_modone = "Intellect"
+  s.spell_modtwo = "Wisdom"
   s.save!  
 end
 
@@ -44,9 +46,23 @@ end
   s.spell_attack = "10"
   s.spell_damage = "5"
   s.spell_weapon = "2"
+  s.spell_modone = "Dexterity"
+  s.spell_modtwo = "None"
   s.save!  
 end
 
+s = Spell.new
+s.spell_name = "double stab"
+s.spell_class = "Rogue"
+s.spell_info = "stabs stuff twice"
+s.spell_remaining = "1"
+s.spell_attack = "10"
+s.spell_damage = "5"
+s.spell_weapon = "2"
+s.spell_modone = "Dexterity"
+s.spell_modtwo = "Strength"
+s.save!
+  
 i = Inventory.new
 i.name = "Shiv"
 i.item_type = "Weapon"
@@ -87,7 +103,7 @@ i.name = "Arm"
 i.item_type = "Armor"
 i.info = ""
 i.slot = "Shield"
-i.bAC = "10"
+i.bAC = "0"
 i.bFort = "0"
 i.bWill = "0"
 i.bReflex = "0"

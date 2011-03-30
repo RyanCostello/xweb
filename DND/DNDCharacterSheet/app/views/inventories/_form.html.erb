@@ -15,9 +15,9 @@
   </div>
   <div class="field">
     <%= f.label :info %><br />
-    <%= f.text_field :info %>
+    <%= f.text_area(:info, :cols => 30, :rows => 10) %>
   </div>
-  <% if @slot != "Weapon" %>
+  <% if @item_type != "Weapon" %>
 	  <div class="field">
 		<%= f.label :slot %><br />
 		<b><%= f.label @slot %></b>

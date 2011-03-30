@@ -35,6 +35,7 @@ class InventoriesController < ApplicationController
   def new
     @inventory = Inventory.new
     @slot = params[:slot]
+    @item_type = params[:item_type]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +46,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/1/edit
   def edit
     @inventory = Inventory.find(params[:id])
+    @item_type = @inventory.item_type
     @slot = @inventory.slot
   end
 
@@ -55,7 +57,7 @@ class InventoriesController < ApplicationController
 
     respond_to do |format|
       if @inventory.save
-        format.html { redirect_to(@inventory, :notice => 'Inventory was successfully created.') }
+        format.html { redirect_to(inventories_url, :notice => 'Inventory was successfully created.') }
         format.xml  { render :xml => @inventory, :status => :created, :location => @inventory }
       else
         format.html { render :action => "new" }
@@ -71,7 +73,7 @@ class InventoriesController < ApplicationController
 
     respond_to do |format|
       if @inventory.update_attributes(params[:inventory])
-        format.html { redirect_to(@inventory, :notice => 'Inventory was successfully updated.') }
+        format.html { redirect_to(inventories_url, :notice => 'Inventory was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -53,7 +53,7 @@ class SpellsController < ApplicationController
 
     respond_to do |format|
       if @spell.save
-        format.html { redirect_to(@spell, :notice => 'Spell was successfully created.') }
+        format.html { redirect_to(spells_url, :notice => 'Spell was successfully created.') }
         format.xml  { render :xml => @spell, :status => :created, :location => @spell }
       else
         format.html { render :action => "new" }
@@ -69,7 +69,7 @@ class SpellsController < ApplicationController
 
     respond_to do |format|
       if @spell.update_attributes(params[:spell])
-        format.html { redirect_to(@spell, :notice => 'Spell was successfully updated.') }
+        format.html { redirect_to(spells_url, :notice => 'Spell was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

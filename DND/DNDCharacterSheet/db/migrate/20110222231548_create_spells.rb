@@ -8,6 +8,8 @@ class CreateSpells < ActiveRecord::Migration
       t.integer :spell_attack
       t.integer :spell_weapon
       t.integer :spell_damage
+      t.string :spell_modone
+      t.string :spell_modtwo
 
       t.timestamps
     end

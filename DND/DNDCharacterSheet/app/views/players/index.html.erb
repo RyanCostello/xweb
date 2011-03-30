@@ -1,6 +1,6 @@
 <h1>Listing players</h1>
 
-<table border = "1">
+<table border = "1" cellpadding="5%">
   <tr>
     <th>Name</th>
     <th>Class</th>
@@ -29,13 +29,14 @@
 	<td><%= player.intellect %></td>
 	<td><%= player.wisdom %></td>
 	<td><%= player.charisma %></td>
-    <td><%= link_to 'Show', player %></td>
-    <td><%= link_to 'Edit', edit_player_path(player) %></td>
-    <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show Player', player %></td>
+    <td><%= link_to 'Edit Player', edit_player_path(player) %></td>
+    <td><%= link_to 'Destroy Player', player, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Player', new_player_path %>
+<br /> | 
+<%= link_to 'New Player', new_player_path %> | 
+<%= link_to 'Spell List', spells_path %> | 
+<%= link_to 'Inventory List', inventories_path %> | 

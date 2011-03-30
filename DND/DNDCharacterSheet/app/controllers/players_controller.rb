@@ -116,8 +116,8 @@ class PlayersController < ApplicationController
   def update
     @player = Player.find(params[:id])
     
-    @defense = Defense.find(:first, :condition => "player_id = '#{session[:p_id]}'")
-    @skill = Skill.find(:first, :condition => "player_id = '#{session[:p_id]}'")
+    @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
+    @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
     @defense.destroy
     @skill.destroy
 
@@ -141,6 +141,13 @@ class PlayersController < ApplicationController
   def calculateSkill
     
   end
+
+
+def add_point
+    @something = Player.find(:first, :conditions => ["id = ?", session[:p_id]])
+    @something.increment!(:character_level)
+    redirect_to(@something)
+end
 
   # DELETE /players/1
   # DELETE /players/1.xml

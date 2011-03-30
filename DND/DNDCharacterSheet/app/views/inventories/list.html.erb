@@ -1,4 +1,4 @@
-<table border="1">
+<table border="1" style="text-align:center;" cellpadding="5%">
   <tr>
     <th>Type</th>
 	<th>Slot</th>
@@ -11,7 +11,7 @@
 	<th>Reflex</th>
 	<th>Add</th>
   </tr>
-<% @inventories = Inventory.find(:all, :condition => ["slot = ?", @slot]) %>
+<% @inventories = Inventory.find(:all, :conditions => ["slot = ?", @slot]) %>
 <% @inventories.each do |inventory| %>
   <tr style="text-align:center;">
     <td><%= inventory.item_type %></td>

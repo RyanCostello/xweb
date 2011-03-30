@@ -1,6 +1,6 @@
-<h1>Listing spells</h1>
+<h1>Spell List</h1>
 
-<table border="1">
+<table border="1" style="text-align:center;" cellpadding="5%">
   <tr>
     <th>Spell name</th>
     <th>Spell class</th>
@@ -8,7 +8,8 @@
     <th>Spell remaining</th>
     <th>Spell attack</th>
     <th>Spell damage</th>
-    <th>Show</th>
+	<th>Modifier 1</th>
+	<th>Modifier 2</th>
     <th>Edit</th>
     <th>Destroy</th>
   </tr>
@@ -21,13 +22,14 @@
     <td><%= spell.spell_remaining %></td>
     <td><%= spell.spell_attack %></td>
     <td><%= spell.spell_damage %></td>
-    <td><%= link_to 'Show', spell %></td>
-    <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
-    <td><%= link_to 'Destroy', spell, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= spell.spell_modone %></td>
+	<td><%= spell.spell_modtwo %></td>
+    <td><%= link_to 'Edit Spell', edit_spell_path(spell) %></td>
+    <td><%= link_to 'Destroy Spell', spell, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Spell', new_spell_path %>
+<br /> | 
+<%= link_to 'New Spell', new_spell_path %> | 
+<%= link_to 'Character List', players_path %> |

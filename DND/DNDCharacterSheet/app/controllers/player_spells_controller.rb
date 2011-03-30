@@ -42,7 +42,7 @@ class PlayerSpellsController < ApplicationController
     
     respond_to do |format|
       if @player_spell.save
-        format.html { redirect_to(@player_spell, :notice => 'Player spell was successfully created.') }
+        format.html { redirect_to(player_spells_url, :notice => 'Player spell was successfully created.') }
         format.xml  { render :xml => @player_spell, :status => :created, :location => @player_spell }
       else
         format.html { render :action => "new" }

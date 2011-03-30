@@ -17,23 +17,57 @@
   </div>
   <div class="field">
     <%= f.label :spell_class %><br />
-    <%= f.text_field :spell_class %>
+    <%= f.radio_button :spell_class, "Mage" %>Mage
+	<%= f.radio_button :spell_class, "Warrior" %>Warrior
+	<%= f.radio_button :spell_class, "Rogue" %>Rogue
+	<%= f.radio_button :spell_class, "Ranger" %>Ranger
+	<%= f.radio_button :spell_class, "Paladin" %>Paladin
+	<%= f.radio_button :spell_class, "Cleric" %>Cleric
+	<%= f.radio_button :spell_class, "Warlord" %>Warlord
+	<%= f.radio_button :spell_class, "Warlock" %>Warlock
   </div>
   <div class="field">
     <%= f.label :spell_info %><br />
-    <%= f.text_field :spell_info %>
+    <%= f.text_area(:spell_info, :cols => 30, :rows => 10) %>
   </div>
+  <% spellremaining = ["1", "2", "3", "4", "5"] %>
   <div class="field">
     <%= f.label :spell_remaining %><br />
-    <%= f.text_field :spell_remaining %>
+    <%= f.select(:spell_remaining, spellremaining) %>
   </div>
+  <% spellattack = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"] %>
   <div class="field">
     <%= f.label :spell_attack %><br />
-    <%= f.text_field :spell_attack %>
+    <%= f.select(:spell_attack, spellattack) %>
   </div>
   <div class="field">
-    <%= f.label :spell_damage %><br />
-    <%= f.text_field :spell_damage %>
+  	<table border=1 style="text-align:center;">
+  		<tr>  			
+    <td><%= f.label "Weapon Damage" %></td>
+	<td><%= f.label "W" %></td>
+	<td></td>
+	<td><%= f.label "Stat Modifier" %></td>
+	<td></td>
+	<td><%= f.label "Stat Modifier" %></td>
+	<td></td>
+	<td><%= f.label "Damage" %></td>
+	</tr>
+	<tr style="text-align:center;">
+	<% spellweapon = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] 
+	 spellstats = ["Strength", "Constitution", "Dexterity", "Intellect", "Wisdom", "Charisma"]
+	 tmp = 0 %>
+    <td><%= f.select(:spell_weapon, spellweapon) %></td>
+	<td>W</td>
+	<td><%= "+" %></td>
+	<td><%= f.select(:spell_modone, spellstats) %></td>	
+	<td><%= "+" %></td>
+	<%  spellstats2 = ["None", "Strength", "Constitution", "Dexterity", "Intellect", "Wisdom", "Charisma"] %>	
+	<td><%= f.select(:spell_modtwo, spellstats2) %></td>
+	<td><%= "+" %></td>
+	<% spelldamage = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"] %>
+	<td><%= f.select(:spell_damage, spelldamage) %></td>
+	</tr>
+	</table>
   </div>
   <div class="actions">
     <%= f.submit %>
