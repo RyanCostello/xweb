@@ -6,4 +6,7 @@ spell_one:
   spell_info: Throws Dagger
   spell_remaining: 1
   spell_attack: 10
+  spell_weapon: 1
   spell_damage: 20
+  spell_modone: Dexterity
+  spell_modtwo: None

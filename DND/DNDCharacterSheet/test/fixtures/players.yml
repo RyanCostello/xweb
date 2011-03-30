@@ -11,3 +11,5 @@ player_1:
   wisdom: 8
   charisma: 12
   intellect: 8
+  health: 100
+  health_per_level: 5

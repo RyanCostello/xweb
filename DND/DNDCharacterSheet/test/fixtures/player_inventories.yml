@@ -1,9 +1,1 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  player_id: 1
-  spell_id: 1
-
-two:
-  player_id: 1
-  spell_id: 1

@@ -9,6 +9,8 @@ class Spell < ActiveRecord::Base
   validates_presence_of :spell_info
   validates_presence_of :spell_class
   validates_presence_of :spell_remaining
+  validates_presence_of :spell_modone
+  validates_presence_of :spell_modtwo
   
   has_many :player_spells, :dependent => :destroy
 end

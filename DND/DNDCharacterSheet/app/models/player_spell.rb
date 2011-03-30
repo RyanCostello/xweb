@@ -1,5 +1,3 @@
-class PlayerSpell < ActiveRecord::Base
-  validates_uniqueness_of :spell_id
-  
+class PlayerSpell < ActiveRecord::Base 
   belongs_to :spell
 end
