@@ -41,9 +41,13 @@
   <tr>
 	<% spell = Spell.find(:first, :conditions => ["id = ?", player_spell.spell_id]) %>
     <td><%= spell.spell_name %></td>
-    <td><%= link_to 'Show', {:controller => "spells" }, :action => "show", :id => player_spell.spell_id %></td>
+	<% if spell.spell_modone == "dex" %>
+		<% spell_damage = spell.spell_damage + session[:dex] %>
+		<!-- to do add rest -->
+	<% end %>
+    <td><%= link_to 'Show', {:controller => "spells", :action => :show, :id => player_spell.spell_id} %></td>
     <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= spell.spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
+	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
   </tr>
 <% end %>
 	<tr>
@@ -55,5 +59,5 @@
 </form>
 <br />
 
-<%= link_to 'Add Spell', {:controller => "spells" }, :action => "list", :id => @player.character_class %>
+<%= link_to 'Add Spell', {:controller => "spells", :action => :list, :id => @player.character_class} %>
 <%= link_to 'Character', player_path(:id => session[:p_id]) %>

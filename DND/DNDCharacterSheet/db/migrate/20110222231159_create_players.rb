@@ -11,6 +11,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :intellect
       t.integer :wisdom
       t.integer :charisma
+      t.integer :health
+      t.integer :health_per_level
 
       t.timestamps
     end

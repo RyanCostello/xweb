@@ -11,7 +11,7 @@ class SpellsController < ApplicationController
   end
 
   def list
-    @char_class = params[:character_class]
+    @char_class = params[:id]
     
     respond_to do |format|
       format.html # show.html.erb

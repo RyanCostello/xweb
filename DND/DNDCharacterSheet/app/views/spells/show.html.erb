@@ -30,6 +30,4 @@
   <%= @spell.spell_damage %>
 </p>
 
-
-<%= link_to 'Edit', edit_spell_path(@spell) %> |
-<%= link_to 'Back', spells_path %>
+<%= link_to 'Back', {:controller => "player_spells", :action => :index} %>

@@ -43,6 +43,10 @@
 			  <th>Charisma:</th>
 			  <td><%= @player.charisma %></td>
 			</tr>
+			<tr>
+			  <th>Health:</th>
+			  <td><%= @player.health + @player.health_per_level * @player.character_level %></td>
+			</tr>
 		</table>
 	</td>
 <% @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>

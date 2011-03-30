@@ -25,6 +25,18 @@ end
 
 (1..5).each do |n|
   s = Spell.new
+  s.spell_name = "fireball #{n}"
+  s.spell_class = "Mage"
+  s.spell_info = "burn stuff"
+  s.spell_remaining = "1"
+  s.spell_attack = "10"
+  s.spell_damage = "12"
+  s.spell_weapon = "1"
+  s.save!  
+end
+
+(1..5).each do |n|
+  s = Spell.new
   s.spell_name = "stab #{n}"
   s.spell_class = "Rogue"
   s.spell_info = "stabs stuff"

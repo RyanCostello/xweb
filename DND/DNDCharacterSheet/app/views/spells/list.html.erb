@@ -10,7 +10,7 @@
     <th>Spell damage</th>
     <th>Add</th>
   </tr>
-<% @spells = Spell.find(:all, :condition => ["spell_class = ?", @char_class]) %>
+<% @spells = Spell.find(:all, :conditions => ["spell_class = ?", @char_class]) %>
 <% @spells.each do |spell| %>
   <tr>
     <td><%= spell.spell_name %></td>
@@ -19,11 +19,16 @@
     <td><%= spell.spell_remaining %></td>
     <td><%= spell.spell_attack %></td>
     <td><%= spell.spell_damage %></td>
-	<td><%= link_to "Add Spell", {:controller => "player_spell" }, :action => "addSpell", :id => spell.id %></td>
+	<% @spell_exists = PlayerSpell.find(:first, :conditions => ["spell_id = ?", spell.id]) %>
+    
+    <% if @spell_exists %>
+       <td>Spell already in spell book.</td>
+	   <% else %>
+	   		<td><%= link_to "Add Spell", {:controller => "player_spells", :action => :addSpell, :id => spell.id} %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'SpellBook', player_spell_path(:id => session[p_id]) %>
+<%= link_to 'SpellBook', {:controller => "player_spells", :action => :index} %>

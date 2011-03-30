@@ -11,7 +11,7 @@ class PlayerInventoriesController < ApplicationController
   end
   
   def addItem
-    @player_inventory = PlayerInventory.new(:player_id => session[p_id], :inventory_id => params[:id])
+    @player_inventory = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => params[:id])
     
     respond_to do |format|
       if @player_inventory.save

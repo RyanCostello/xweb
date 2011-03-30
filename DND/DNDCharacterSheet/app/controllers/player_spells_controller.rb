@@ -38,7 +38,7 @@ class PlayerSpellsController < ApplicationController
   end
   
   def addSpell
-    @player_spell = PlayerSpell.new(:player_id => session[p_id], :spell_id => params[:id])
+    @player_spell = PlayerSpell.new(:player_id => session[:p_id], :spell_id => params[:id])
     
     respond_to do |format|
       if @player_spell.save

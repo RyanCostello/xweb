@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20110310192443) do
     t.integer  "intellect"
     t.integer  "wisdom"
     t.integer  "charisma"
+    t.integer  "health"
+    t.integer  "health_per_level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
