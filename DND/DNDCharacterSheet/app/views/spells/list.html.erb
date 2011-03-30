@@ -8,6 +8,8 @@
     <th>Spell remaining</th>
     <th>Spell attack</th>
     <th>Spell damage</th>
+	<th>Modifier 1</th>
+	<th>Modifier 2</th>
     <th>Add</th>
   </tr>
 <% @spells = Spell.find(:all, :conditions => ["spell_class = ?", @char_class]) %>
@@ -19,6 +21,8 @@
     <td><%= spell.spell_remaining %></td>
     <td><%= spell.spell_attack %></td>
     <td><%= spell.spell_damage %></td>
+	<td><%= spell.spell_modone %></td>
+	<td><%= spell.spell_modtwo %></td>
 	<% @spell_exists = PlayerSpell.find(:first, :conditions => ["spell_id = ?", spell.id]) %>
     
     <% if @spell_exists %>

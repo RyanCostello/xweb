@@ -24,33 +24,36 @@
 		<table border="1" style="text-align:center;" cellpadding="10%">
 			<tr>
 				<th colspan=2>Abilities</th>
+				<th>Mod</th>
 			</tr>
 			  <th>Strength:</th>
 			  <td><%= @player.strength %></td>
+			  <td><%= session[:str_mod] %></td>
 			</tr>
 			<tr>
 			  <th>Constitution:</th>
 			  <td><%= @player.constitution %></td>
+			  <td><%= session[:con_mod] %></td>
 			</tr>
 			<tr>
 			  <th>Dexterity:</th>
 			  <td><%= @player.dexterity %></td>
+			  <td><%= session[:dex_mod] %></td>
 			</tr>
 			<tr>
 			  <th>Intellect:</th>
 			  <td><%= @player.intellect %></td>
+			  <td><%= session[:int_mod] %></td>
 			</tr>
 			<tr>
 			  <th>Wisdom:</th>
 			  <td><%= @player.wisdom %></td>
+			  <td><%= session[:wis_mod] %></td>
 			</tr>
 			<tr>
 			  <th>Charisma:</th>
 			  <td><%= @player.charisma %></td>
-			</tr>
-			<tr>
-			  <th>Health:</th>
-			
+			  <td><%= session[:char_mod] %></td>
 			</tr>
 		</table>
 	</td>

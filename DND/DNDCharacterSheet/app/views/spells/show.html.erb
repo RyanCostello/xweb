@@ -30,4 +30,19 @@
   <%= @spell.spell_damage %>
 </p>
 
+<p>
+  <b>Spell weapon:</b>
+  <%= @spell.spell_weapon %>
+</p>
+
+<p>
+  <b>Mod One:</b>
+  <%= @spell.spell_modone %>
+</p>
+
+<p>
+  <b>Mod Two:</b>
+  <%= @spell.spell_modtwo %>
+</p>
+
 <%= link_to 'Back', {:controller => "player_spells", :action => :index} %>

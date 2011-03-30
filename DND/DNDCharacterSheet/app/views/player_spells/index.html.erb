@@ -40,14 +40,30 @@
 <% @player_spells.each do |player_spell| %>
   <tr>
 	<% spell = Spell.find(:first, :conditions => ["id = ?", player_spell.spell_id]) %>
+	<% @spell_damage = spell.spell_damage %>
     <td><%= spell.spell_name %></td>
-	<% if spell.spell_modone == "dex" %>
-		<% spell_damage = spell.spell_damage + session[:dex] %>
-		<!-- to do add rest -->
+	<% if spell.spell_modone == "Dexterity" or spell.spell_modtwo == "Dexterity" %>
+		<% @spell_damage += session[:dex_mod] %>
 	<% end %>
+	<% if spell.spell_modone == "Strength" or spell.spell_modtwo == "Strength" %>
+		<% @spell_damage += session[:str_mod] %>
+	<% end %>
+	<% if spell.spell_modone == "Constitution" or spell.spell_modtwo == "Constitution" %>
+		<% @spell_damage += session[:con_mod] %>
+	<% end %>
+	<% if spell.spell_modone == "Wisdom" or spell.spell_modtwo == "Wisdom" %>
+		<% @spell_damage += session[:wis_mod] %>
+	<% end %>
+	<% if spell.spell_modone == "Intellect" or spell.spell_modtwo == "Intellect" %>
+		<% @spell_damage += session[:int_mod] %>
+	<% end %>
+	<% if spell.spell_modone == "Charisma" or spell.spell_modtwo == "Charisma" %>
+		<% @spell_damage += session[:char_mod] %>
+	<% end %>
+	
     <td><%= link_to 'Show', {:controller => "spells", :action => :show, :id => player_spell.spell_id} %></td>
     <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
+	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= @spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
   </tr>
 <% end %>
 	<tr>
