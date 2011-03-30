@@ -20,6 +20,8 @@ PlayerSpell.destroy_all
   p.wisdom = "8"
   p.charisma = "12"
   p.intellect = "8"
+  p.health = "16"
+  p.health_per_level = "3"
   p.save!  
 end
 

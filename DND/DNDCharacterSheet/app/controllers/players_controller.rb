@@ -4,16 +4,43 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all
 
+    session[:health_track] = 0
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @players }
     end
   end
   
+  def changehealth
+    @player = Player.find(session[:p_id])
+    @dec = params[:health_down]
+    @inc = params[:health_up]
+    
+    if @dec != ""
+      @dec = Integer(@dec)
+      session[:health] -= @dec   
+    end
+    
+    if @inc != ""
+      @inc = Integer(@inc)
+      session[:health] += @inc
+    end
+    
+   
+    redirect_to(@player)
+    
+  end
+  
   # GET /players/1
   # GET /players/1.xml
-  def show
+  def show    
     @player = Player.find(params[:id])
+    
+    if session[:health_track] == 0
+      session[:health] = @player.health + @player.health_per_level * @player.character_level
+      session[:health_track] = 1
+    end
     
     session[:p_id] = @player.id
     session[:str_mod] = (@player.strength-10)/2

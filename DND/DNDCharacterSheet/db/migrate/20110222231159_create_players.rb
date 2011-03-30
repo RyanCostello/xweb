@@ -13,6 +13,8 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :charisma
       t.integer :health
       t.integer :health_per_level
+      t.integer :health_up
+      t.integer :health_down
 
       t.timestamps
     end
