@@ -11,7 +11,7 @@ class PlayerInventoriesController < ApplicationController
   end
   
   def addItem
-    @remove_item = PlayerInventory.find(:first, :conditions => ["inventory_id = ?", params[:oldId]])
+    @remove_item = PlayerInventory.find(:first, :conditions => ["inventory_id = ? and player_id = ?", params[:oldId], session[:p_id]])
     @remove_item.destroy
     @player_inventory = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => params[:id])
     

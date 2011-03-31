@@ -11,9 +11,8 @@
   <tr>
   	<th><%= inventory.slot %></th>
     <td><%= inventory.name %></td>
-	<% @slot = inventory.slot %>
 	<td><%= link_to 'show', { :controller => "inventories", :action => "show", :id => inventory.id } %></td>
-	<td><%= link_to 'Replace ' + inventory.slot, { :controller => "inventories", :action => "list", :slot => @slot, :id => inventory.id } %></td>
+	<td><%= link_to 'Replace ' + inventory.slot, { :controller => "inventories", :action => "list", :slot => inventory.slot, :id => inventory.id } %></td>
   </tr>
 <% end %>
 </table>

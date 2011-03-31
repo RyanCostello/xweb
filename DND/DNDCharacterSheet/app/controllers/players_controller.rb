@@ -55,33 +55,85 @@ class PlayersController < ApplicationController
     session[:will] = 0
     session[:fort] = 0
     
-    @item = PlayerInventory.find(:first, :conditions => ["player_id = ?", session[:p_id]])
+    @helm = false
+    @weapon1 = false
+    @weapon2 = false
+    @amulet = false
+    @chest = false
+    @boots = false
+    @ring = false
+    @gloves = false
+    @shield = false  
+    @legs = false
     
-    if !@item
-      @item = Inventory.find(:first, :conditions => ["name = ?", "Hat"])    
+    @player_items = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]])
+    
+    @player_items.each do |items|
+      @item = Inventory.find(:first, :conditions => ["id = ?", items.inventory_id])
+      if @item.slot == "Helm"
+        @helm = true
+      elsif @item.slot == "1 Handed"
+        @weapon1 = true
+      elsif @item.slot == "2 Handed"
+        @weapon2 = true
+      elsif @item.slot == "Amulet"
+        @amulet = true
+      elsif @item.slot == "Chest"
+        @chest = true
+      elsif @item.slot == "Legs"
+        @legs = true
+      elsif @item.slot == "Ring"
+        @ring = true
+      elsif @item.slot == "Boots"
+        @boots = true
+      elsif @item.slot == "Gloves"
+        @gloves = true
+      elsif @item.slot == "Shield"
+        @shield = true
+      end
+    end
+    
+    if @helm == false
+      @item = Inventory.find(:first, :conditions => ["name = ?", "Hat"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @weapon1 == false and @weapon2 == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Fist"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @chest == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "T-Shirt"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @legs == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Jeans"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @amulet == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Neck Tie"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @boots == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Shoes"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @ring == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "String"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @shield == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Arm"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save
+    end
+    if @gloves == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Mittens"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
       foo.save

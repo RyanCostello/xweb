@@ -17,17 +17,21 @@
 <% @inventories = Inventory.order(:slot) %>
 <% @inventories.each do |inventory| %>	
   <tr>
-    <td><%= inventory.item_type %></td>
-    <td><%= inventory.slot %></td>
-    <td><%= inventory.name %></td>
-    <td><%= inventory.info %></td>
-    <td><%= inventory.damage %></td>
-    <td><%= inventory.bAC %></td>
-	<td><%= inventory.bFort %></td>
-	<td><%= inventory.bWill %></td>
-	<td><%= inventory.bReflex %></td>
-    <td><%= link_to 'Edit Item', edit_inventory_path(inventory.id) %></td>
-    <td><%= link_to 'Destroy Item', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
+  	<% if inventory.name != "Hat" and inventory.name != "T-Shirt" and inventory.name != "Neck Tie" and
+			inventory.name != "Jeans" and inventory.name != "String" and inventory.name != "Shoes" and
+			inventory.name != "Fist" and inventory.name != "Arm" and inventory.name != "Mittens" %> 
+	    <td><%= inventory.item_type %></td>
+	    <td><%= inventory.slot %></td>
+	    <td><%= inventory.name %></td>
+	    <td><%= inventory.info %></td>
+	    <td><%= inventory.damage %></td>
+	    <td><%= inventory.bAC %></td>
+		<td><%= inventory.bFort %></td>
+		<td><%= inventory.bWill %></td>
+		<td><%= inventory.bReflex %></td>
+	    <td><%= link_to 'Edit Item', edit_inventory_path(inventory.id) %></td>
+	    <td><%= link_to 'Destroy Item', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>

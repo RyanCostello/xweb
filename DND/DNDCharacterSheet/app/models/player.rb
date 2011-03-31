@@ -16,4 +16,6 @@ class Player < ActiveRecord::Base
   
   has_many :skills, :dependent => :destroy
   has_many :defenses, :dependent => :destroy
+  has_many :player_spells, :dependent => :destroy
+  has_many :player_inventories, :dependent => :destroy
 end
