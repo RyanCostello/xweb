@@ -1,3 +1,5 @@
+#Controller for the Master list of all spells for a player to choose from
+
 class SpellsController < ApplicationController
   # GET /spells
   # GET /spells.xml

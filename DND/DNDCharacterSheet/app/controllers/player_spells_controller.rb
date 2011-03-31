@@ -1,3 +1,5 @@
+#PlayerSpells bring together the Player and Spells table.
+
 class PlayerSpellsController < ApplicationController
   # GET /player_spells
   # GET /player_spells.xml
@@ -37,6 +39,7 @@ class PlayerSpellsController < ApplicationController
     @player_spell = PlayerSpell.find(params[:id])
   end
   
+  #Redirects the user to the spellbook list instead of show
   def addSpell
     @player_spell = PlayerSpell.new(:player_id => session[:p_id], :spell_id => params[:id])
     

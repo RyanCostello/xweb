@@ -1,5 +1,4 @@
-#Maybe have a spell database and have a player select available spells to add to 
-#their own "spellbook."
+#This makes sure user fills out everything. Spell Name is unique to avoid same names.
 
 class Spell < ActiveRecord::Base
   validates_presence_of :spell_name

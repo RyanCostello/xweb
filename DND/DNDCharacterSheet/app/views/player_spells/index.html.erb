@@ -1,3 +1,4 @@
+<!-- We used a Javascript to use the buttons to generate random numbers. -->
 <script type="text/javascript">
   function useSpell(spellUsed, attack, spellDamage, damage, spellWeapon)
   {
@@ -34,6 +35,7 @@
 			<% @foundWeapon = @weapon %>
 		<% end %>
 	<% end %>
+<!-- Had to calculate the modifers for the spells-->	
 	
 	<% @player_spells = PlayerSpell.find(:all, :conditions => ["player_id = ?", session[:p_id]])%>
 
