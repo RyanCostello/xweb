@@ -1,3 +1,5 @@
+#controls a player's defenses
+
 class DefensesController < ApplicationController
   # GET /defenses
   # GET /defenses.xml

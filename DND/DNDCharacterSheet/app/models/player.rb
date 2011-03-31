@@ -1,6 +1,6 @@
 #Ryan Costello
 #Cascading deletes, if a player is deleted then the associated 
-#tables are deleted as well.  Name, level, class, and all stats are all mandatory.  Initiative will be calculated.
+#tables are deleted as well.  Name, level, class, and all stats are all mandatory.
 
 class Player < ActiveRecord::Base
   validates_presence_of :character_name

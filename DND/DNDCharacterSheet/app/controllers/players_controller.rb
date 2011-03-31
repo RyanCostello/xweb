@@ -1,6 +1,9 @@
+#Controls all player interaction
+
 class PlayersController < ApplicationController
   # GET /players
   # GET /players.xml
+  #Displayer list of players
   def index
     @players = Player.all
 
@@ -12,6 +15,7 @@ class PlayersController < ApplicationController
     end
   end
   
+  #Calculates a change in a characters health(session expires when user goes to character list)
   def changehealth
     @player = Player.find(session[:p_id])
     @dec = params[:health_down]
@@ -34,14 +38,18 @@ class PlayersController < ApplicationController
   
   # GET /players/1
   # GET /players/1.xml
+  
+  #calculates all values of a player
   def show    
     @player = Player.find(params[:id])
     
+    #health tracking variables
     if session[:health_track] == 0
       session[:health] = @player.health + @player.health_per_level * @player.character_level
       session[:health_track] = 1
     end
     
+    #defenses
     session[:p_id] = @player.id
     session[:str_mod] = (@player.strength-10)/2
     session[:con_mod] = (@player.constitution-10)/2
@@ -68,6 +76,7 @@ class PlayersController < ApplicationController
     
     @player_items = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]])
     
+    #checks to see if every slot was present
     @player_items.each do |items|
       @item = Inventory.find(:first, :conditions => ["id = ?", items.inventory_id])
       if @item.slot == "Helm"
@@ -93,6 +102,7 @@ class PlayersController < ApplicationController
       end
     end
     
+    #if a slot was missing then it adds a default item
     if @helm == false
       @item = Inventory.find(:first, :conditions => ["name = ?", "Hat"])
       foo = PlayerInventory.new(:player_id => session[:p_id], :inventory_id => @item.id)
@@ -141,6 +151,7 @@ class PlayersController < ApplicationController
     
     @def = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]])    
     
+    #calculates defense bonuses from items
     @def.each do |defen|
       @addValue = Inventory.find(:first, :conditions => ["id = ?", defen.inventory_id])
       if @addValue.item_type == "Armor"
@@ -221,11 +232,11 @@ class PlayersController < ApplicationController
     
   end
 
-
-def add_point
-    @something = Player.find(:first, :conditions => ["id = ?", session[:p_id]])
-    @something.increment!(:character_level)
-    redirect_to(@something)
+#level-up method
+def level_up
+    @player = Player.find(:first, :conditions => ["id = ?", session[:p_id]])
+    @player.increment!(:character_level)
+    redirect_to(@player)
 end
 
   # DELETE /players/1

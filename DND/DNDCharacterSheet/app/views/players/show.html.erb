@@ -1,3 +1,6 @@
+<!--Shows tables: abilities, defenses and skill with links to 
+	character inventory and spell book.  Uses javascript to 
+	use skills and ruby button to calculate health changes. -->
 <script type="text/javascript">
   function skillCheck(skillUsed, num)
   {
@@ -14,7 +17,7 @@
 	&#160;&#160;Level:&#160;<u><%= @player.character_level%></u>
 	&#160;&#160;Initiative:&#160;<u><%= @player.character_initiative %></u></h3>
 	<br />
-	<%= button_to 'Level Up',  :action => :add_point, :remote=> true %>
+	<%= button_to 'Level Up',  :action => :level_up, :remote=> true %>
 <br />
 	<table border="1" style="text-align:center;margin: 20px 50px 20px 400px;" cellpadding="5%">
 		<tr>
@@ -31,10 +34,6 @@
 	  <% end %>
    </tr>
    </table>
-		
-
-
-
 
 <table>
 	<tr>

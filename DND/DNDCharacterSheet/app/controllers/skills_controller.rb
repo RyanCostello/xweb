@@ -1,3 +1,5 @@
+#controls a player's skills
+
 class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.xml

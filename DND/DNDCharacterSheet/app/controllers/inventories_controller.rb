@@ -1,3 +1,5 @@
+#Controls the master inventory
+
 class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.xml

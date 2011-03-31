@@ -1,3 +1,5 @@
+#Controls a player's inventory
+
 class PlayerInventoriesController < ApplicationController
   # GET /player_inventories
   # GET /player_inventories.xml
@@ -10,6 +12,7 @@ class PlayerInventoriesController < ApplicationController
     end
   end
   
+  #adds an item to a players inventory
   def addItem
     @remove_item = PlayerInventory.find(:first, :conditions => ["inventory_id = ? and player_id = ?", params[:oldId], session[:p_id]])
     @remove_item.destroy
