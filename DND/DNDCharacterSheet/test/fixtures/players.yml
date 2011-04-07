@@ -13,3 +13,5 @@ player_1:
   intellect: 8
   health: 100
   health_per_level: 5
+  health_up: 0
+  health_down: 0

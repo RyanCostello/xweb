@@ -5,7 +5,6 @@ one:
     slot: Helm
     name: Great Helm
     info: It's Pointy
-    damage: 
     bAC: 1
     bFort: 1
     bWill: 0
@@ -17,7 +16,3 @@ two:
     name: Shiv
     info: Stabs Stuff
     damage: 20
-    bAC:
-    bFort:
-    bWill:
-    bReflex:
