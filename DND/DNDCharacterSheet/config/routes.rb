@@ -5,13 +5,7 @@ DNDCharacterSheet::Application.routes.draw do
 
   resources :inventories
 
-  resources :skills
-
   resources :spells
-
-  resources :defenses
-
-  resources :stats
 
   resources :players
 

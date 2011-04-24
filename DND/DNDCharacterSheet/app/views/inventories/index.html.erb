@@ -1,3 +1,18 @@
+<%= stylesheet_link_tag "scaffold" %>
+<div id="leftheader"></div>
+
+<div id="header"><br/>
+<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
+<div id="title">
+<h1>Interactive Character Sheet</h1>	
+</div>
+
+</div>
+
+<div id="rightheader"></div>
+<div id="leftcol"></div>
+<div id="content">
+
 <h1>Inventory List</h1>
 
 <table border="1" style="text-align:center;" cellpadding="5%">
@@ -11,7 +26,7 @@
 	<th>Fort</th>
 	<th>Will</th>
 	<th>Reflex</th>
-	<th>Edit</th>
+	<th>Change</th>
 	<th>Destroy</th>
   </tr>
 <% @inventories = Inventory.order(:slot) %>
@@ -29,23 +44,31 @@
 		<td><%= inventory.bFort %></td>
 		<td><%= inventory.bWill %></td>
 		<td><%= inventory.bReflex %></td>
-	    <td><%= link_to 'Edit Item', edit_inventory_path(inventory.id) %></td>
-	    <td><%= link_to 'Destroy Item', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td><%= link_to 'Edit', edit_inventory_path(inventory.id) %></td>
+	    <td><%= link_to 'Delete', inventory, :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
   </tr>
 <% end %>
 </table>
 
-<br /> | 
-<%= link_to 'New Helm', {:action => "new", :slot => "Helm", :item_type => "Armor"} %> | 
-<%= link_to 'New Amulet', {:action => "new", :slot => "Amulet", :item_type => "Armor"} %> | 
-<%= link_to 'New Chest', {:action => "new", :slot => "Chest", :item_type => "Armor"} %> | 
-<%= link_to 'New Gloves', {:action => "new", :slot => "Gloves", :item_type => "Armor"} %> | 
-<%= link_to 'New Ring', {:action => "new", :slot => "Ring", :item_type => "Armor"} %> | 
-<%= link_to 'New Legs', {:action => "new", :slot => "Legs", :item_type => "Armor"} %> | 
-<%= link_to 'New Boots', {:action => "new", :slot => "Boots", :item_type => "Armor"} %> | 
-<%= link_to 'New Weapon', {:action => "new", :slot => "1 Handed", :item_type => "Weapon"} %> | 
-<%= link_to 'New Shield', {:action => "new", :slot => "Shield", :item_type => "Armor"} %> | 
+<br />  
+
 <br />
 <br />
-<%= link_to 'Character List', players_path %> 
+</div>
+<div id="rightcol"></div>
+<div id="footer">
+<table> 
+<tr><td><%= link_to image_tag("/images/buttonback.jpg", :width => 150, :height => 68), players_path %></td>
+<td><%= link_to image_tag("/images/buttonnewhelm.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Helm", :item_type => "Armor"} %></td>
+<td><%= link_to image_tag("/images/buttonnewamulet.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Amulet", :item_type => "Armor"} %></td> 
+<td><%= link_to image_tag("/images/buttonnewchest.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Chest", :item_type => "Armor"} %></td> 
+<td><%= link_to image_tag("/images/buttonnewgloves.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Gloves", :item_type => "Armor"} %></td></tr>  
+<tr><td><%= link_to image_tag("/images/buttonnewring.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Ring", :item_type => "Armor"} %></td>
+<td><%= link_to image_tag("/images/buttonnewpants.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Legs", :item_type => "Armor"} %></td>  
+<td><%= link_to image_tag("/images/buttonnewboots.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Boots", :item_type => "Armor"} %></td> 
+<td><%= link_to image_tag("/images/buttonnewweapon.jpg", :width => 150, :height => 68), {:action => "new", :slot => "1 Handed", :item_type => "Weapon"} %></td>  
+<td><%= link_to image_tag("/images/buttonnewshield.jpg", :width => 150, :height => 68), {:action => "new", :slot => "Shield", :item_type => "Armor"} %></td></tr>   
+</table>
+<div id="copyright">By Peter Hiesel and Ryan Costello</div>
+</div>

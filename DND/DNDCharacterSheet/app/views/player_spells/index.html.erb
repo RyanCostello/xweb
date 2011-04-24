@@ -1,3 +1,18 @@
+<%= stylesheet_link_tag "scaffold" %>
+<div id="leftheader"></div>
+
+<div id="header"><br/>
+<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
+<div id="title">
+<h1>Interactive Character Sheet</h1>	
+</div>
+
+</div>
+
+<div id="rightheader"></div>
+<div id="leftcol"></div>
+<div id="content">
+
 <!-- We used a Javascript to use the buttons to generate random numbers. -->
 <script type="text/javascript">
   function useSpell(spellUsed, attack, spellDamage, damage, spellWeapon)
@@ -65,7 +80,8 @@
 	
     <td><%= link_to 'Show', {:controller => "spells", :action => :show, :id => player_spell.spell_id} %></td>
     <td><%= link_to 'Destroy', player_spell, :confirm => 'Are you sure?', :method => :delete %></td>
-	<td><input type="button" onclick="useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= @spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell" /></td>
+	<td><a href="javascript:useSpell('<%= spell.spell_name %>', <%= spell.spell_attack %>, <%= @spell_damage %>, <%= @foundWeapon.damage %>, <%= spell.spell_weapon %>)" value="Use Spell">
+	<img src="/images/contentbuttonusespell.jpg" width="100" height="35" /></a></td>
   </tr>
 <% end %>
 	<tr>
@@ -76,6 +92,15 @@
 </table>
 </form>
 <br />
-
-<%= link_to 'Add Spell', {:controller => "spells", :action => :list, :id => @player.character_class} %>
-<%= link_to 'Character', player_path(:id => session[:p_id]) %>
+</div>
+<div id="rightcol"></div>
+<div id="footer">
+<table> 
+<td><%= link_to image_tag("/images/buttonback.jpg", :width => 150, :height => 68), player_path(:id => session[:p_id]) %></td>
+<td><%= link_to image_tag("/images/buttonaddspell.jpg", :width => 150, :height => 68), {:controller => "spells", :action => :list, :id => @player.character_class} %></td>  
+</table>
+<br />
+<br />
+<br />
+<div id="copyright">By Peter Hiesel and Ryan Costello</div>
+</div>

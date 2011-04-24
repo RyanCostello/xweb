@@ -1,3 +1,17 @@
+<%= stylesheet_link_tag "scaffold" %>
+<div id="leftheader"></div>
+
+<div id="header"><br/>
+<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
+<div id="title">
+<h1>Interactive Character Sheet</h1><br />	
+</div>
+</div>
+
+<div id="rightheader"></div>
+<div id="leftcol"></div>
+<div id="content">
+
 <!-- We used a lot of drop down boxes to avoid many errors from the user's end. -->
 <%= form_for(@spell) do |f| %>
   <% if @spell.errors.any? %>
@@ -13,45 +27,57 @@
   <% end %>
 
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :spell_name %><br />
+	</div>
     <%= f.text_field :spell_name %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :spell_class %><br />
-    <%= f.radio_button :spell_class, "Mage" %>Mage
-	<%= f.radio_button :spell_class, "Warrior" %>Warrior
-	<%= f.radio_button :spell_class, "Rogue" %>Rogue
-	<%= f.radio_button :spell_class, "Ranger" %>Ranger
-	<%= f.radio_button :spell_class, "Paladin" %>Paladin
-	<%= f.radio_button :spell_class, "Cleric" %>Cleric
-	<%= f.radio_button :spell_class, "Warlord" %>Warlord
-	<%= f.radio_button :spell_class, "Warlock" %>Warlock
+	</div>
+	<table>
+    <td><%= f.radio_button :spell_class, "Mage" %>Mage</td>
+	<td><%= f.radio_button :spell_class, "Warrior" %>Warrior</td>
+	<td><%= f.radio_button :spell_class, "Rogue" %>Rogue</td>
+	<td><%= f.radio_button :spell_class, "Ranger" %>Ranger</td>
+	<td><%= f.radio_button :spell_class, "Paladin" %>Paladin</td>
+	<td><%= f.radio_button :spell_class, "Cleric" %>Cleric</td>
+	<td><%= f.radio_button :spell_class, "Warlord" %>Warlord</td>
+	<td><%= f.radio_button :spell_class, "Warlock" %>Warlock</td>
+	</table>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :spell_info %><br />
+	</div>
     <%= f.text_area(:spell_info, :cols => 30, :rows => 10) %>
   </div>
   <% spellremaining = ["1", "2", "3", "4", "5"] %>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :spell_remaining %><br />
+	</div>
     <%= f.select(:spell_remaining, spellremaining) %>
   </div>
   <% spellattack = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"] %>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :spell_attack %><br />
+	</div>
     <%= f.select(:spell_attack, spellattack) %>
   </div>
   <div class="field">
   	<table border=1 style="text-align:center;">
-  		<tr>  			
-    <td><%= f.label "Weapon Damage" %></td>
-	<td><%= f.label "W" %></td>
+  		<tr>  					
+    <td><div id="boldtext"><%= f.label "Weapon Damage" %></div></td>
+	<td><div id="boldtext"><%= f.label "W" %></div></td>
 	<td></td>
-	<td><%= f.label "Stat Modifier" %></td>
+	<td><div id="boldtext"><%= f.label "Stat Modifier" %></div></td>
 	<td></td>
-	<td><%= f.label "Stat Modifier" %></td>
+	<td><div id="boldtext"><%= f.label "Stat Modifier" %></div></td>
 	<td></td>
-	<td><%= f.label "Damage" %></td>
+	<td><div id="boldtext"><%= f.label "Damage" %></div></td>	
 	</tr>
 	<tr style="text-align:center;">
 	<% spellweapon = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] 
@@ -71,6 +97,17 @@
 	</table>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= image_submit_tag("/images/contentbuttonsave.jpg", :width => 150, :height => 68) %>	
+	<%= link_to image_tag("/images/contentbuttonback.jpg", :width => 150, :height => 68), spells_path %>
   </div>
 <% end %>
+
+
+</div>
+<div id="rightcol"></div>
+<div id="footer">
+<br />
+<br />
+<br />
+<div id="copyright">By Peter Hiesel and Ryan Costello</div>
+</div> 

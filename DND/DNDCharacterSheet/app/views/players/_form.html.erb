@@ -1,3 +1,17 @@
+<%= stylesheet_link_tag "scaffold" %>
+<div id="leftheader"></div>
+
+<div id="header"><br/>
+<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
+<div id="title">
+<h1>Interactive Character Sheet</h1><br />	
+</div>
+</div>
+
+<div id="rightheader"></div>
+<div id="leftcol"></div>
+<div id="content">
+
 <%= form_for(@player) do |f| %>
   <% if @player.errors.any? %>
     <div id="error_explanation">
@@ -12,66 +26,104 @@
   <% end %>
 
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :character_name %><br />
+	</div>
     <%= f.text_field :character_name %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :character_class %><br />
-	<%= f.radio_button :character_class, "Mage" %>Mage
-	<%= f.radio_button :character_class, "Warrior" %>Warrior
-	<%= f.radio_button :character_class, "Rogue" %>Rogue
-	<%= f.radio_button :character_class, "Ranger" %>Ranger
-	<%= f.radio_button :character_class, "Paladin" %>Paladin
-	<%= f.radio_button :character_class, "Cleric" %>Cleric
-	<%= f.radio_button :character_class, "Warlord" %>Warlord
-	<%= f.radio_button :character_class, "Warlock" %>Warlock	
+	</div>
+	<table>
+	<td><%= f.radio_button :character_class, "Mage" %>Mage</td>
+	<td><%= f.radio_button :character_class, "Warrior" %>Warrior</td>
+	<td><%= f.radio_button :character_class, "Rogue" %>Rogue</td>
+	<td><%= f.radio_button :character_class, "Ranger" %>Ranger</td>
+	<td><%= f.radio_button :character_class, "Paladin" %>Paladin</td>
+	<td><%= f.radio_button :character_class, "Cleric" %>Cleric</td>
+	<td><%= f.radio_button :character_class, "Warlord" %>Warlord</td>
+	<td><%= f.radio_button :character_class, "Warlock" %>Warlock</td>
+	</table>	
   </div>
-<% playerstats = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"] %>
+<% playerstats = ["8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"] %>
   <div class="field">
   	<% playerinitiative = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "20"] %>
-    <%= f.label :character_initiative %><br />
+    <div id="boldtext">
+	<%= f.label :character_initiative %><br />
+	</div>
     <%= f.select(:character_initiative, playerinitiative) %>
   </div>
   <div class="field">
   	<% playerlevel = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"] %>
+	<div id="boldtext">
     <%= f.label :character_level %><br />
+	</div>
     <%= f.select(:character_level, playerlevel) %>
   </div>
   <div class="field">
   	<% health = ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"] %>
+	<div id="boldtext">
     <%= f.label :health %><br />
+	</div>
     <%= f.select(:health, health) %>
   </div>
   <div class="field">
   	<% health_per_level = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] %>
+	<div id="boldtext">
     <%= f.label :health_per_level %><br />
+	</div>
     <%= f.select(:health_per_level, health_per_level) %>
   </div>
-  <div class="field">  	
+  <div class="field">
+  	<div id="boldtext">  	
     <%= f.label :strength %><br />
+	</div>
     <%= f.select(:strength, playerstats) %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :constitution %><br />
+	</div>
     <%= f.select(:constitution, playerstats) %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :dexterity %><br />
+	</div>
     <%= f.select(:dexterity, playerstats) %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :intellect %><br />
+	</div>
     <%= f.select(:intellect, playerstats) %>
   </div>
   <div class="field">
+  	<div id="boldtext">
     <%= f.label :wisdom %><br />
+	</div>
     <%= f.select(:wisdom, playerstats) %>
   </div>
-  <div class="field">  
+  <div class="field">
+  	<div id="boldtext">  
     <%= f.label :charisma %><br />
+	</div>
     <%= f.select(:charisma, playerstats) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= image_submit_tag("/images/contentbuttonsave.jpg", :width => 150, :height => 68) %>	
+	<%= link_to image_tag("/images/contentbuttonback.jpg", :width => 150, :height => 68), players_path %>
   </div>
+  
 <% end %>
+
+
+</div>
+<div id="rightcol"></div>
+<div id="footer">
+<br />
+<br />
+<br />
+<div id="copyright">By Peter Hiesel and Ryan Costello</div>
+</div> 

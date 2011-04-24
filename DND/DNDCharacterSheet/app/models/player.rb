@@ -13,7 +13,6 @@ class Player < ActiveRecord::Base
   validates_presence_of :intellect
   validates_presence_of :wisdom
   validates_presence_of :charisma
-  
   has_many :skills, :dependent => :destroy
   has_many :defenses, :dependent => :destroy
   has_many :player_spells, :dependent => :destroy

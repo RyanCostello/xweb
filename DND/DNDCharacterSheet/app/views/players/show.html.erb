@@ -1,3 +1,16 @@
+<%= stylesheet_link_tag "scaffold" %>
+<div id="leftheader"></div>
+
+<div id="header"><br/>
+<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
+<div id="title">
+<h1>Interactive Character Sheet</h1><br />	
+</div>
+</div>
+
+<div id="rightheader"></div>
+<div id="leftcol"></div>
+<div id="content">
 <!--Shows tables: abilities, defenses and skill with links to 
 	character inventory and spell book.  Uses javascript to 
 	use skills and ruby button to calculate health changes. -->
@@ -11,69 +24,49 @@
   }
 </script>
 
-<p id="notice"><%= notice %></p>
-<h3>Character:&#160;<u><%= @player.character_name %></u>
+
+<h3 style="font-size:x-large;">Character:&#160;<u><%= @player.character_name %></u>
 	&#160;&#160;Class:&#160;<u><%= @player.character_class %></u>
 	&#160;&#160;Level:&#160;<u><%= @player.character_level%></u>
-	&#160;&#160;Initiative:&#160;<u><%= @player.character_initiative %></u></h3>
+	&#160;&#160;Initiative:&#160;<u><%= @player.character_initiative %></u>
+
+	<div style="float:right; margin-right:10%">
 	<br />
-	<%= button_to 'Level Up',  :action => :level_up, :remote=> true %>
+	
+	<%= form_tag(:action => :level_up) do %>
+	  <%= image_submit_tag("/images/contentbuttonlevelup.jpg", :width => 130, :height => 48) %>
+	  <% end %>
+	</div>
+	</h3>
 <br />
-	<table border="1" style="text-align:center;margin: 20px 50px 20px 400px;" cellpadding="5%">
+<br />
+<br />
+<br />
+	<table border="1" cellpadding="5%" style="text-align:center; margin:auto;">
 		<tr>
 			<th>Subtract Health</th>
 			<th>Current Health</th>
 			<th>Add Health</th>
 		</tr>
 		<tr>
+	  <p id="errornotice" style="text-align:center;"> <%= notice%></p>
 	  <%= form_tag(:action => :changehealth) do %>
+	  <div class="field">
       <td><%= text_field_tag(:health_down, nil, :size => 3)%></td>
 	  <td><%= session[:health] %></td>
 	  <td><%= text_field_tag(:health_up, nil, :size => 3)%></td>
-	  <td><%= submit_tag("Change Health") %></td>
-	  <% end %>
-   </tr>
+	  </div>
+	  </tr>
    </table>
+   <div style="text-align:center; margin:auto;">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	  <%= image_submit_tag("/images/contentbuttonupdatehealth.jpg", :width => 130, :height => 48) %>
+	  </div>
+	  <% end %>
 
-<table>
-	<tr>
-	<td colspan=2; style="float: left; margin: 20px 50px 20px 400px;">
-		<table border="1" style="text-align:center;" cellpadding="10%">
-			<tr>
-				<th colspan=2>Abilities</th>
-				<th>Mod</th>
-			</tr>
-			  <th>Strength:</th>
-			  <td><%= @player.strength %></td>
-			  <td><%= session[:str_mod] %></td>
-			</tr>
-			<tr>
-			  <th>Constitution:</th>
-			  <td><%= @player.constitution %></td>
-			  <td><%= session[:con_mod] %></td>
-			</tr>
-			<tr>
-			  <th>Dexterity:</th>
-			  <td><%= @player.dexterity %></td>
-			  <td><%= session[:dex_mod] %></td>
-			</tr>
-			<tr>
-			  <th>Intellect:</th>
-			  <td><%= @player.intellect %></td>
-			  <td><%= session[:int_mod] %></td>
-			</tr>
-			<tr>
-			  <th>Wisdom:</th>
-			  <td><%= @player.wisdom %></td>
-			  <td><%= session[:wis_mod] %></td>
-			</tr>
-			<tr>
-			  <th>Charisma:</th>
-			  <td><%= @player.charisma %></td>
-			  <td><%= session[:char_mod] %></td>
-			</tr>
-		</table>
-	</td>
+
+		
+	
 <% @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>
 <% @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>
 <% @things = PlayerInventory.find(:all, :conditions => "player_id = '#{session[:p_id]}'") %>
@@ -117,8 +110,162 @@
 			:Endurance => session[:con_mod]) %>
 	<% @skill.save %>
 <% end %>
-<td colspan=2; style="float: right; margin: 20px 50px 20px 50px;">
-	<table border="1" style="text-align:center;" cellpadding="20%">
+
+	
+	<br />
+	<form>
+	<table border="1" style="float:left; margin-left:15%;" cellpadding="3%">
+	  <tr>
+	  	<th colspan = "3"> Skills </th>
+	  </tr>
+	  <tr>
+	  	<th>Acrobatics</th>
+	    <td><%= @skill.Acrobatics + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Acrobatics', <%= @skill.Acrobatics + (@player.character_level/2) %>)" value="Use Skill">
+			<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Arcana</th>
+		<td><%= @skill.Arcana + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Arcana', <%= @skill.Arcana + (@player.character_level/2) %>)" value="Use Skill">
+			<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Athletics</th>
+		<td><%= @skill.Athletics + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Athletics', <%= @skill.Athletics + (@player.character_level/2) %>)" value="Use Skill">
+			<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Bluff</th>
+		<td><%= @skill.Bluff + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Bluff', <%= @skill.Bluff + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Diplomacy</th>
+		<td><%= @skill.Diplomacy + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Diplomacy', <%= @skill.Diplomacy + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Dungeoneering</th>
+		<td><%= @skill.Dungeoneering + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Dungeoneering', <%= @skill.Dungeoneering + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Endurance</th>
+		<td><%= @skill.Endurance + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Endurance', <%= @skill.Endurance + (@player.character_level/2) %>)" value="Use Skill">
+			<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Heal</th>
+		<td><%= @skill.Heal + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Heal', <%= @skill.Heal + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>History</th>
+		<td><%= @skill.History + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('History', <%= @skill.History + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Insight</th>
+		<td><%= @skill.Insight + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Insight', <%= @skill.Insight + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Intimidate</th>
+		<td><%= @skill.Intimidate + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Intimidate', <%= @skill.Intimidate + (@player.character_level/2) %>)" value="Use Skill">
+			<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Nature</th>
+		<td><%= @skill.Nature + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Nature', <%= @skill.Nature + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Perception</th>
+		<td><%= @skill.Perception + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Perception', <%= @skill.Perception + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Religion</th>
+		<td><%= @skill.Religion + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Religion', <%= @skill.Religion + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Stealth</th>
+		<td><%= @skill.Stealth + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Stealth', <%= @skill.Stealth + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>  
+	  <tr>
+	  	<th>Streetwise</th>
+		<td><%= @skill.Streetwise + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Streetwise', <%= @skill.Streetwise + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th>Thievery</th>
+		<td><%= @skill.Thievery + (@player.character_level/2) %></td>
+		<td><a href="javascript:skillCheck('Thievery', <%= @skill.Thievery + (@player.character_level/2) %>)" value="Use Skill">
+		<img src="/images/contentbuttonuseskill.jpg" width="100" height="35" /></a></td>
+	  </tr>
+	  <tr>
+	  	<th colspan=3>Result from <input type="text" readonly=true style="text-align:center;" 
+			id="skillPicked"/> skill check = <input type="text" id="answer" readonly=true size=3 style="text-align:center;"/></th>
+	  </tr>
+	</table>
+	</form>
+	
+	<table border="1" style="float:left; margin-left:5%;" cellpadding="10%">
+			<tr>
+				<th colspan=2>Abilities</th>
+				<th>Mod</th>
+			</tr>
+			  <th>Strength:</th>
+			  <td><%= @player.strength %></td>
+			  <td><%= session[:str_mod] %></td>
+			</tr>
+			<tr>
+			  <th>Constitution:</th>
+			  <td><%= @player.constitution %></td>
+			  <td><%= session[:con_mod] %></td>
+			</tr>
+			<tr>
+			  <th>Dexterity:</th>
+			  <td><%= @player.dexterity %></td>
+			  <td><%= session[:dex_mod] %></td>
+			</tr>
+			<tr>
+			  <th>Intellect:</th>
+			  <td><%= @player.intellect %></td>
+			  <td><%= session[:int_mod] %></td>
+			</tr>
+			<tr>
+			  <th>Wisdom:</th>
+			  <td><%= @player.wisdom %></td>
+			  <td><%= session[:wis_mod] %></td>
+			</tr>
+			<tr>
+			  <th>Charisma:</th>
+			  <td><%= @player.charisma %></td>
+			  <td><%= session[:char_mod] %></td>
+			</tr>
+		</table>
+		<br />
+		<br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br /><br /><br /><br />
+	<table border="1" style="float:left; margin-left:5%;" cellpadding="20%">
 		<tr>
 			<th colspan=2>Defenses</th>
 		</tr>
@@ -139,116 +286,17 @@
 		  <td><%= @defense.Will + (@player.character_level/2) + session[:will]%></td>
 		</tr>
 	</table>
-</td>
-<tr>
-<td colspan=2; style="float: left; margin: 20px 50px 20px 400px;">
-	<form>
-	<table border="1" style="text-align:center;" cellpadding="3%">
-	  <tr>
-	  	<th colspan = "3"> Skills </th>
-	  </tr>
-	  <tr>
-	  	<th>Acrobatics</th>
-	    <td><%= @skill.Acrobatics + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Acrobatics', <%= @skill.Acrobatics + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Arcana</th>
-		<td><%= @skill.Arcana + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Arcana', <%= @skill.Arcana + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Athletics</th>
-		<td><%= @skill.Athletics + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Athletics', <%= @skill.Athletics + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Bluff</th>
-		<td><%= @skill.Bluff + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Bluff', <%= @skill.Bluff + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Diplomacy</th>
-		<td><%= @skill.Diplomacy + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Diplomacy', <%= @skill.Diplomacy + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Dungeoneering</th>
-		<td><%= @skill.Dungeoneering + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Dungeoneering', <%= @skill.Dungeoneering + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Endurance</th>
-		<td><%= @skill.Endurance + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Endurance', <%= @skill.Endurance + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Heal</th>
-		<td><%= @skill.Heal + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Heal', <%= @skill.Heal + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>History</th>
-		<td><%= @skill.History + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('History', <%= @skill.History + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Insight</th>
-		<td><%= @skill.Insight + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Insight', <%= @skill.Insight + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Intimidate</th>
-		<td><%= @skill.Intimidate + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Intimidate', <%= @skill.Intimidate + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Nature</th>
-		<td><%= @skill.Nature + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Nature', <%= @skill.Nature + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Perception</th>
-		<td><%= @skill.Perception + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Perception', <%= @skill.Perception + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Religion</th>
-		<td><%= @skill.Religion + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Religion', <%= @skill.Religion + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Stealth</th>
-		<td><%= @skill.Stealth + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Stealth', <%= @skill.Stealth + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>  
-	  <tr>
-	  	<th>Streetwise</th>
-		<td><%= @skill.Streetwise + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Streetwise', <%= @skill.Streetwise + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th>Thievery</th>
-		<td><%= @skill.Thievery + (@player.character_level/2) %></td>
-		<td><input type="button" onclick="skillCheck('Thievery', <%= @skill.Thievery + (@player.character_level/2) %>)" value="Use Skill" /></td>
-	  </tr>
-	  <tr>
-	  	<th colspan=3>Result from <input type="text" readonly=true style="text-align:center;" 
-			id="skillPicked"/> skill check = <input type="text" id="answer" readonly=true style="text-align:center;"/></th>
-	  </tr>
-	</table>
-	</form>
-</td>
-</tr>
-<tr>
-	<td>
-		<%= link_to 'Character List', players_path %>
-	</td>
-	<td>
-		<%= link_to 'Inventory', player_inventories_path %> | 
-	</td
-	<td>
-		<%= link_to 'Spells', player_spells_path %>
-	</td
-</tr>
+
+</div>
+<div id="rightcol"></div>
+<div id="footer">
+<table>
+<td><%= link_to image_tag("/images/buttoncharacterlist.jpg", :width => 150, :height => 68), players_path %></td>
+<td><%= link_to image_tag("/images/buttonequipment.jpg", :width => 150, :height => 68), player_inventories_path %></td> 
+<td><%= link_to image_tag("/images/buttonspellbook.jpg", :width => 150, :height => 68), player_spells_path %></td>
 </table>
+<br />
+<br />
+<div id="copyright">By Peter Hiesel and Ryan Costello</div>
+<br />
+</div> 
