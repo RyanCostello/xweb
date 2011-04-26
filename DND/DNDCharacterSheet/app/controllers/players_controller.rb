@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
   include ActiveModel::Validations
   attr_accessor :health_down, :health_up
   
-  validates :health_down, :length => {:minimum => 1, :maxium => 100}
+  validates :health_down, :length => {:minimum => 1, :maxium => 2}
   
   # GET /players
   # GET /players.xml
@@ -20,8 +20,8 @@ class PlayersController < ApplicationController
     end
   end
   
-  def is_a_number?(s)
-    s.to_s.match(/^[1-9][0-9]*$/) == nil ? false : true
+  def is_a_valid_number?(s)
+    s.to_s.match(/^[1-9][0-9]?$/) == nil ? false : true
   end
   
   #Calculates a change in a characters health(session expires when user goes to character list)
@@ -30,16 +30,16 @@ class PlayersController < ApplicationController
     @dec = params[:health_down]
     @inc = params[:health_up]
     
-    if is_a_number?(@dec)
+    if is_a_valid_number?(@dec)
       @dec = Integer(@dec)
       session[:health] -= @dec
       redirect_to(@player)
-    elsif is_a_number?(@inc)
+    elsif is_a_valid_number?(@inc)
       @inc = Integer(@inc)
       session[:health] += @inc
       redirect_to(@player)
     else
-      redirect_to(@player, :notice => 'Only postive numbers are allowed to change health')
+      redirect_to(@player, :notice => 'Only postive numbers are allowed to change health (Max 99)')
     end    
   end
   
@@ -195,7 +195,6 @@ class PlayersController < ApplicationController
   # POST /players.xml
   def create
     @player = Player.new(params[:player])
-    
 
     respond_to do |format|
       if @player.save
@@ -215,8 +214,11 @@ class PlayersController < ApplicationController
     
     @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
     @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
-    @defense.destroy
-    @skill.destroy
+    
+    if @defense
+      @defense.destroy
+      @skill.destroy
+    end
 
     respond_to do |format|
       if @player.update_attributes(params[:player])

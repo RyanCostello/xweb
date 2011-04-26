@@ -11,7 +11,7 @@
 <div id="rightheader"></div>
 <div id="leftcol"></div>
 <div id="content">
-
+<p id="errornotice" style="text-align:center;"> <%= notice%></p>
 <%= form_for(@inventory) do |f| %>
   <% if @inventory.errors.any? %>
     <div id="error_explanation">

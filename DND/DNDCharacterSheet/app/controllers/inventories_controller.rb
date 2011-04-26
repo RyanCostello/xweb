@@ -79,7 +79,7 @@ class InventoriesController < ApplicationController
         format.html { redirect_to(inventories_url, :notice => 'Inventory was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to(edit_inventory_path(@inventory.id), :notice => 'Entries cannot be blank.') }
         format.xml  { render :xml => @inventory.errors, :status => :unprocessable_entity }
       end
     end
