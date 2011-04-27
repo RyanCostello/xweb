@@ -15,18 +15,11 @@
 <!-- Listing of all players -->
 <h1>Character List</h1>
 
-<table border = "1" >
+<table border = "1" cellpadding="10%" >
   <tr>
     <th>Name</th>
     <th>Class</th>
-    <th>Initiative</th>
     <th>Level</th>
-	<th>Strength</th>
-	<th>Constitution</th>
-	<th>Dexterity</th>
-	<th>Intellect</th>
-	<th>Wisdom</th>
-	<th>Charisma</th>
     <th>Pick</th>
     <th>Change</th>
     <th>Destroy</th>
@@ -36,14 +29,7 @@
   <tr style="text-align:center;">
     <td><%= player.character_name %></td>
     <td><%= player.character_class %></td>
-    <td><%= player.character_initiative %></td>
     <td><%= player.character_level %></td>
-	<td><%= player.strength %></td>
-	<td><%= player.constitution %></td>
-	<td><%= player.dexterity %></td>
-	<td><%= player.intellect %></td>
-	<td><%= player.wisdom %></td>
-	<td><%= player.charisma %></td>
     <td><%= link_to 'Load', player %></td>
     <td><%= link_to 'Edit', edit_player_path(player) %></td>
     <td><%= link_to 'Delete', player, :confirm => 'Are you sure?', :method => :delete %></td>

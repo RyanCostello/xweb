@@ -1,10 +1,6 @@
 #Controls all player interaction
 
 class PlayersController < ApplicationController
-  include ActiveModel::Validations
-  attr_accessor :health_down, :health_up
-  
-  validates :health_down, :length => {:minimum => 1, :maxium => 2}
   
   # GET /players
   # GET /players.xml

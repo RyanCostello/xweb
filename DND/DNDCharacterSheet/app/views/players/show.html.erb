@@ -31,10 +31,8 @@
 <br />
 <br />
 <p id="errornotice" style="text-align:center;"> <%= notice%></p>
-			
 	
 <% @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'") %>
-<% @things = PlayerInventory.find(:all, :conditions => "player_id = '#{session[:p_id]}'") %>
 
 <% ac = 0 %>
 <% if !@defense %>
