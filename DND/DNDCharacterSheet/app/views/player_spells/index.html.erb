@@ -96,8 +96,10 @@
 <div id="rightcol"></div>
 <div id="footer">
 <table> 
-<td><%= link_to image_tag("/images/buttonback.jpg", :width => 150, :height => 68), player_path(:id => session[:p_id]) %></td>
-<td><%= link_to image_tag("/images/buttonaddspell.jpg", :width => 150, :height => 68), {:controller => "spells", :action => :list, :id => @player.character_class} %></td>  
+<td><%= link_to image_tag("/images/buttonaddspell.jpg", :width => 150, :height => 68), {:controller => "spells", :action => :list, :id => @player.character_class} %></td>
+<td><%= link_to image_tag("/images/buttonskills.jpg", :width => 150, :height => 68), skills_path %></td>
+<td><%= link_to image_tag("/images/buttonequipment.jpg", :width => 150, :height => 68), player_inventories_path %></td> 
+<td><%= link_to image_tag("/images/buttoncharacter.jpg", :width => 150, :height => 68), player_path(:id => session[:p_id]) %></td>  
 </table>
 <br />
 <br />

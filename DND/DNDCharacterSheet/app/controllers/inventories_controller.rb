@@ -63,7 +63,7 @@ class InventoriesController < ApplicationController
         format.html { redirect_to(inventories_url, :notice => 'Inventory was successfully created.') }
         format.xml  { render :xml => @inventory, :status => :created, :location => @inventory }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to(new_inventory_path(:slot => @inventory.slot, :item_type => @inventory.item_type), :notice => 'Entries cannot be blank.') }
         format.xml  { render :xml => @inventory.errors, :status => :unprocessable_entity }
       end
     end

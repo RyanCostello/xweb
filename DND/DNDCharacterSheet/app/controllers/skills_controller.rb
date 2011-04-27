@@ -4,11 +4,11 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.xml
   def index
-    @skills = Skill.all
+    @player = Player.find(session[:p_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @skills }
+      format.xml  { render :xml => @player }
     end
   end
 
