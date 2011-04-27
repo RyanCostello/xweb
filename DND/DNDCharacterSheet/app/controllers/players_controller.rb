@@ -2,6 +2,10 @@
 
 class PlayersController < ApplicationController
   
+  def download
+    send_file '/doc/DNDUsersGuide.zip', :type=>"application/zip", :x_sendfile=>true
+  end
+  
   # GET /players
   # GET /players.xml
   #Displayer list of players
