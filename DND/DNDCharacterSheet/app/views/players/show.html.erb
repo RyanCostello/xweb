@@ -1,33 +1,26 @@
 <%= stylesheet_link_tag "scaffold" %>
-<div id="leftheader"></div>
-
-<div id="header"><br/>
-<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
-<div id="title">
-<h1>Interactive Character Sheet</h1><br />	
+<div id="container">
+<div id="header">
+<center><img src="/images/dnd_banner.jpg" alt="Not here" width="80%" height="100" /></center>
+<h1>Interactive Character Sheet</h1>	
 </div>
-</div>
-
-<div id="rightheader"></div>
-<div id="leftcol"></div>
 <div id="content">
 <!--Shows tables: abilities, defenses and skill with links to 
 	character inventory and spell book.  Uses javascript to 
 	use skills and ruby button to calculate health changes. -->
 	
-<h3 style="font-size:x-large;">Character:&#160;<u><%= @player.character_name %></u>
-	&#160;&#160;Class:&#160;<u><%= @player.character_class %></u>
-	&#160;&#160;Level:&#160;<u><%= @player.character_level%></u>
-	&#160;&#160;Initiative:&#160;<u><%= @player.character_initiative %></u>
+<h3 style="font-size:x-large;"><div id="title">Character:</div><u><%= @player.character_name %></u><br /><br />
+	<div id="title">Class:</div><u><%= @player.character_class %></u><br /><br />
+	<div id="title">Level:</div><u><%= @player.character_level%></u><br /><br />
+	<div id="title">Initiative:</div><u><%= @player.character_initiative %></u></h3>
 
 	<div style="float:right; margin-right:10%">
-	<br />
+	
 	
 	<%= form_tag(:action => :level_up) do %>
 	  <%= image_submit_tag("/images/contentbuttonlevelup.jpg", :width => 130, :height => 48) %>
 	  <% end %>
 	</div>
-	</h3>
 <br />
 <br />
 <p id="errornotice" style="text-align:center;"> <%= notice%></p>
@@ -149,7 +142,6 @@
 	  <% end %>
 
 </div>
-<div id="rightcol"></div>
 <div id="footer">
 <table>
 <td><%= link_to image_tag("/images/buttonspellbook.jpg", :width => 150, :height => 68), player_spells_path %></td>
@@ -158,7 +150,7 @@
 <td><%= link_to image_tag("/images/buttoncharacterlist.jpg", :width => 150, :height => 68), players_path %></td> 
 </table>
 <br />
-<br />
+
 <div id="copyright">By Peter Hiesel and Ryan Costello</div>
-<br />
 </div> 
+<div>

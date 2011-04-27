@@ -1,147 +1,181 @@
-body { background-color: #fff; 
-	   color: #333; 
-	   margin-left: 0px;
-	   margin-right: 0px;
-	   margin-top: 0px;
-	   margin-bottom: 0px; }
-
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+html 
+{
+	padding:0;
+	margin:0;
 }
 
-pre {
+body 
+{
+	background-color:#666666;
+	margin:0 auto;
+	font-size:1.0em;
+	color:#999999;
+	line-height: 18px;
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+
+pre 
+{
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
-
-table { margin: auto; }
-
-div.field, div.actions {
-  margin-bottom: 10px;
+a 
+{ 
+	color: #fff; 
 }
 
-#notice {
-  color: green;
+a:visited 
+{ 
+	color: #fff; 
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+a:hover 
+{ 
+	color: #fff; 
+	background-color:#0000FF; 
+}
+
+h1
+{
+	text-align:center;
+}
+
+h2 
+{
+	color:#348781;
+	display:inline;
+	padding:0 10px;
+	margin:20px 0;
+}
+
+table 
+{ 
+	margin: auto;
+	text-align:center;
+}
+
+div.field, div.actions 
+{
+  	margin-bottom: 10px;
+}
+
+#notice 
+{
+  	color: green;
+}
+
+.field_with_errors 
+{
+  	padding: 2px;
+  	background-color: red;
+  	display: table;
+  	text-align:center;
+  	margin: auto;
+}
+
+#error_explanation 
+{
+  	width: 450px;
+  	border: 2px solid red;
+  	padding: 7px;
+  	padding-bottom: 0;
+  	margin-bottom: 20px;
+  	background-color: #f0f0f0;
+  	text-align:center;
+  	margin: auto;
+}
+
+#error_explanation h2 
+{
+  	text-align: left;
+  	font-weight: bold;
+  	padding: 5px 5px 5px 15px;
+  	font-size: 12px;
+  	margin: auto;
+  	background-color: #c00;
+  	color: #fff;
+  	text-align:center;
+}
+
+#error_explanation ul li 
+{
+  	font-size: 12px;
+  	list-style: square;
+  	text-align:center;
+  	margin: auto;
+}
+
+div#container 
+{
+	background-color:#666666;
+	width:70%;
+	padding:5px 5px 0 5px;
+	margin:60px auto 0 auto;
+}
+
+div#header 
+{
+	background-image:url('/images/headerbg.jpg');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-color:#111111;
+	height:160px;
+	padding:10px;
+}
+
+div#header p 
+{
+	text-align:center;
+	padding:0;
+	margin:0;
+	font-size:0.8em;
+	color:#ffffff;
+}
+
+div#content 
+{
+    padding:20px 10px 0 10px;
+	background-color:#C0C0C0;
+	color:#000000;
+	overflow:auto;
+}
+
+div#footer 
+{
+	padding:20px 5px 0 0;
+	background-image:url('/images/headerbg.jpg');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-color:#111111;
+	text-align:center;
+}
+
+
+div#copyright 
+{
   text-align:center;
-  margin: auto;
+  color: #52D017;
 }
 
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  text-align:center;
-  margin: auto;
+div#boldtext 
+{
+  	color:#000000;
+	font-weight:bold;  
 }
 
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: auto;
-  background-color: #c00;
-  color: #fff;
-  text-align:center;
+div#title
+{
+	color:#348781;
+	display:inline;
+	padding:0 10px;
+	margin:20px 0;
 }
 
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-  text-align:center;
-  margin: auto;
-}
-
-#header {
-  background: #404040;
-  float:left;
-  width: 60%;
-  height: 200px;
-  text-align:center;
-  color:#33CC00;
-}
-
-#leftheader {
-  background: #404040;
-  float:left;
-  width: 20%;
-  height: 200px;
-}
-
-#rightheader {
-  background: #404040;
-  float:left;
-  width: 20%;
-  height: 200px;
-}
-
-#leftcol {
-  background: #404040;
-  float: left;
-  width: 15%;
-  height: 400px;
-}
-
-#rightcol {
-  background: #404040;
-  float:left;
-  width: 15%;
-  height: 400px;
-}
-
-#content {
-  background: #fff;
-  float: left;
-  width: 70%;
-  height: 400px;
-  overflow:scroll;
-  margin-left: auto;
-  margin-right: auto;
-  text-align:center;
-  background: #C0C0C0;
-}
-
-#footer {
-  background: #404040;
-  clear: both;
-  width: 100%;
-  height: 170px;
-  text-align:center;
-  color:#33CC00;
-}
-
-#copyright {
-  text-align:center;
-  color: #FFFFFF;
-}
-
-#title {
-  text-align:center;
-  color:#33CC00;
-  font-size:x-large;
-}
-
-#boldtext {
-  font-weight:bold;  
-}
-
-#errornotice {
+#errornotice 
+{
   font-weight:bold;
   color:#CC0000;  
 }

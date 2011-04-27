@@ -1,20 +1,14 @@
 <%= stylesheet_link_tag "scaffold" %>
-<div id="leftheader"></div>
-
-<div id="header"><br/>
-<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
-<div id="title">
+<div id="container">
+<div id="header">
+<center><img src="/images/dnd_banner.jpg" alt="Not here" width="80%" height="100" /></center>
 <h1>Interactive Character Sheet</h1>	
 </div>
 
-</div>
-
-<div id="rightheader"></div>
-<div id="leftcol"></div>
 <div id="content">
 <!-- Listing of all players -->
-<h1>Character List</h1>
-
+<h2>Character List</h2>
+<p><br /></p>
 <table border = "1" cellpadding="10%" >
   <tr>
     <th>Name</th>
@@ -36,10 +30,9 @@
   </tr>
 <% end %>
 </table>
-
+<br />
 
 </div>
-<div id="rightcol"></div>
 <div id="footer">
 <table> 
 <td><%= link_to image_tag("/images/buttonnewcharacter.jpg", :width => 150, :height => 68), new_player_path %></td>  
@@ -47,8 +40,7 @@
 <td><%= link_to image_tag("/images/buttoninventory.jpg", :width => 150, :height => 68), inventories_path %></td>
 </table>
 <br />
-FAQ
-<br />
-<br />
+
 <div id="copyright">By Peter Hiesel and Ryan Costello</div>
 </div> 
+<div>

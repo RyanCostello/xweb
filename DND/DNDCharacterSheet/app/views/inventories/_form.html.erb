@@ -1,15 +1,10 @@
 <%= stylesheet_link_tag "scaffold" %>
-<div id="leftheader"></div>
-
-<div id="header"><br/>
-<img src="/images/dnd_banner.jpg" alt="Not here" width="100%" height="90" />
-<div id="title">
-<h1>Interactive Character Sheet</h1><br />	
-</div>
+<div id="container">
+<div id="header">
+<center><img src="/images/dnd_banner.jpg" alt="Not here" width="80%" height="100" /></center>
+<h1>Interactive Character Sheet</h1>	
 </div>
 
-<div id="rightheader"></div>
-<div id="leftcol"></div>
 <div id="content">
 <p id="errornotice" style="text-align:center;"> <%= notice%></p>
 <%= form_for(@inventory) do |f| %>
@@ -105,10 +100,10 @@
 <% end %>
 
 </div>
-<div id="rightcol"></div>
 <div id="footer">
 <br />
-<br />
-<br />
+
 <div id="copyright">By Peter Hiesel and Ryan Costello</div>
-</div>
+</div> 
+<div>
+ 
