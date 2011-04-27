@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:3000/" />
+<title>update health limit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">update health limit</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Load</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_down</td>
+	<td>kk</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>-10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>100000000000000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>100000000000000000000000000000000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>1000000000000000000000000000000000000000000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>1000000000000000000000000000000000000000000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>10000000000000000000000000029387877777777777777777777777777777777777777777777777777777777777777777777777777777</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>1111111111111111111122222222222222222222222222222222222222222222222222222222222</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

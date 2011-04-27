@@ -211,17 +211,21 @@ class PlayersController < ApplicationController
   # PUT /players/1.xml
   def update
     @player = Player.find(params[:id])
-    
-    @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
-    @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
-    
-    if @defense
-      @defense.destroy
-      @skill.destroy
-    end
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
+        
+        @defense = Defense.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
+        @skill = Skill.find(:first, :conditions => "player_id = '#{session[:p_id]}'")
+        
+        if @defense
+          @defense.destroy
+        end
+        
+        if @skill
+          @skill.destroy
+        end
+        
         session[:str_mod] = (@player.strength-10)/2
         session[:con_mod] = (@player.constitution-10)/2
         session[:dex_mod] = (@player.dexterity-10)/2

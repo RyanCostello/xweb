@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Useage Simulation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Useage Simulation</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/players</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonnewcharacter']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>player_character_name</td>
+	<td>Tester</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>player_character_class_rogue</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>player_health_per_level</td>
+	<td>label=4</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>player_strength</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>player_constitution</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>player_dexterity</td>
+	<td>label=21</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>player_charisma</td>
+	<td>label=13</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonspellbook']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonaddspell']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Spell</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonaddspell']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/table/tbody/tr[7]/td[9]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/form/table/tbody/tr[4]/td[4]/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>spellPicked</td>
+	<td>double stab</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/form/table/tbody/tr[4]/td[3]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonaddspell']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/table/tbody/tr[7]/td[9]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>double stab</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonskills']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/form/table/tbody/tr[9]/td[2]/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>skillPicked</td>
+	<td>Stealth</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonequipment']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Replace 1 Handed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Weapon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Shiv</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/table/tbody/tr[10]/td[2]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonback']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonspellbook']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/form/table/tbody/tr[3]/td[4]/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttoncharacter']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_down</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_down</td>
+	<td>-10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Only postive numbers are allowed to change health (Max 99)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>health_up</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/div[4]/input</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttoncharacterlist']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[12]/td[6]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonspells']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Buttonnewspell']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>spell_spell_name</td>
+	<td>Protect</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>spell_spell_class_cleric</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>spell_spell_info</td>
+	<td>Damages an enemy while shielding an ally.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>spell_spell_attack</td>
+	<td>label=8</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>spell_spell_modone</td>
+	<td>label=Intellect</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>spell_spell_damage</td>
+	<td>label=4</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[13]/td[9]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>spell_spell_info</td>
+	<td>Damages an enemy while shielding an ally. +10 temporary hp 5 yard range.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[13]/td[10]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Buttoncharacterlist']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Buttoninventory']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Buttonnewweapon']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inventory_name</td>
+	<td>Broken Bottle</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inventory_info</td>
+	<td>Roll d20 if less than ten user takes 1d4 damage.</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>inventory_damage</td>
+	<td>label=6</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Broken Bottle</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[4]/td[10]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inventory_info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='image']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='content']/table/tbody/tr[4]/td[11]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@alt='Buttonback']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

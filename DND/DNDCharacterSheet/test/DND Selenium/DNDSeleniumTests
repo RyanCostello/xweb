@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="addcharacter">addcharacter</a></td></tr>
+<tr><td><a href="character_load">character_load</a></td></tr>
+<tr><td><a href="charcter list edit failed">charcter list edit failed</a></td></tr>
+<tr><td><a href="DDtestcase">DDtestcase</a></td></tr>
+<tr><td><a href="inventory_edit_error">inventory_edit_error</a></td></tr>
+<tr><td><a href="spelledit">spelledit</a></td></tr>
+<tr><td><a href="update health limit">update health limit</a></td></tr>
+</tbody></table>
+</body>
+</html>
