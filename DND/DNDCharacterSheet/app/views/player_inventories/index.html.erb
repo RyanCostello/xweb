@@ -14,10 +14,6 @@
 <table border="1" style="text-align:center;" cellpadding="10%">  
 
 <% @player_inventories = PlayerInventory.find(:all, :conditions => ["player_id = ?", session[:p_id]]) %> 
-  <tr>
-    <% player = Player.find(:first, :conditions => ["id = ?", session[:p_id]]) %>
-    <th colspan=4><%= player.character_name + " " %> Equipped Inventory</th>
-  </tr>
   
 <% @player_inventories.each do |player_inventory| %>
   <% inventory = Inventory.find(:first, :conditions => ["id = ?", player_inventory.inventory_id]) %>
